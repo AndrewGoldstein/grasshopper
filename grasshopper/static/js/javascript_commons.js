@@ -1,7 +1,7 @@
 //Javascript Commons File
 
 
-			function defineCookie(cookie_name, cookie_result) {
+      function defineCookie(cookie_name, cookie_result) {
                 if (document.cookie != document.cookie) {index = document.cookie.indexOf(cookie_name);} else { index = -1;}
                 if (index == -1) { document.cookie=cookie_name+"="+cookie_result+"; expires=Monday, 04-Apr-2020 05:00:00 GMT"; }
                 console.log("hello");
@@ -25,17 +25,17 @@
                 }
             }
 
-		  function getCookie(cookie_name) {
-		    if(document.cookie) {
-		      index = document.cookie.indexOf(cookie_name);
-		      if (index != -1) {
-		        namestart = (document.cookie.indexOf("=", index) + 1);
-		        nameend = document.cookie.indexOf(";", index);
-		      if (nameend == -1) {nameend = document.cookie.length;}
-		        return document.cookie.substring(namestart, nameend);
-		      }
-		    }
-		  }
+      function getCookie(cookie_name) {
+        if(document.cookie) {
+          index = document.cookie.indexOf(cookie_name);
+          if (index != -1) {
+            namestart = (document.cookie.indexOf("=", index) + 1);
+            nameend = document.cookie.indexOf(";", index);
+          if (nameend == -1) {nameend = document.cookie.length;}
+            return document.cookie.substring(namestart, nameend);
+          }
+        }
+      }
 
             function onLoad() {
               gapi.load('auth2', function() {
@@ -65,6 +65,30 @@
                                     };
         }
 
+
+
+
+
+
+    function onSignIn2(googleUser) {
+      var profile = googleUser.getBasicProfile();
+            try {
+                  console.log(googleUser);
+                  defineCookie('current_user', profile.getName());  
+                  window.location = "http://localhost:5000/users" ;
+            }
+            catch(err) {
+                  console.log( "NO NO NO NO"  );
+            }
+      //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Email: ' + profile.getEmail());
+      console.log('Name: ' + profile.getName());
+      //console.log('Image URL: ' + profile.getImageUrl());
+    }
+
+
+
+    
       function reloaddiv(div) {
           var origin = getCookie("origin");
           document.getElementById(div).innerHTML = '<option value="select">Select Destination</option>' ;

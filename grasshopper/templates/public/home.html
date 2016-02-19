@@ -1,33 +1,38 @@
 
 {% extends "layout.html" %}
 {% block content %}
-<!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
+        <h2>What are you doing this weekend?</h2>
+        <p class="lead">Take a new adventure, visit a friend, hop on a romantic getaway. Spontaneity has reached new heights. Search last minute flight deals for this coming weekend!</p>
+        
+        <center><div class="g-signin2" data-onsuccess="onSignIn2" href="users/jumbotron.html"></div></center>
 
-  <h1>Welcome to Grass Hopper</h1>
 
-  <p>This is a starter Flask template. It includes Bootstrap 3, jQuery 2, Flask-SQLAlchemy, WTForms, and various testing utilities out of the box.</p>
-  <p><a href="https://github.com/sloria/cookiecutter-flask" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div><!-- /.jumbotron -->
+   
+      </div>
 
-<div class="body-content">
-  <div class="row">
-    <div class="col-lg-4">
-      <h2><i class="fa fa-code"></i> Bootstrap 3</h2>
-      <p>Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.</p>
-      <p><a class="btn btn-default" href="http://getbootstrap.com/">Official website &raquo;</a></p>
-    </div>
-    <div class="col-lg-4">
-      <h2><i class="fa fa-flask"></i> SQLAlchemy</h2>
-      <p>SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.</p>
-      <p><a href="http://www.sqlalchemy.org/" class="btn btn-default" href="#">Official website &raquo;</a></p>
-   </div>
-    <div class="col-lg-4">
-      <h2><i class="fa fa-edit"></i> WTForms</h2>
-      <p>WTForms is a flexible forms validation and rendering library for python web development.</p>
-      <p><a href="http://wtforms.simplecodes.com/" class="btn btn-default" href="#">Official website &raquo;</a></p>
-    </div>
-  </div><!-- /.row -->
-</div>
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Non-Stop Flights</h4>
+          <p>The Weekend Flyer doesn't have time for layovers and missed connections. Wheels up, Wheels down.</p>
+
+          <h4>Roundtrip</h4>
+          <p>It's good to go and it's good to come back. Our fares include both legs of your flight.</p>
+
+          <h4>First Come, First Serve</h4>
+          <p>There's a limited set of tickets available for any given flight. The boarding door may close at any time.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>(Long) Weekend Travel Only</h4>
+          <p>The Weekend Flyer is not a substitute for last minute weekday travel bookings, we're just giving the common man a shot at weekend greatness.</p>
+
+          <h4>Limited Set of Airports</h4>
+          <p>We're starting with flights to Seattle, New York, San Francisco, Boston, and Las Vegas. </p>
+
+          <h4>Low Fare Guarantee</h4>
+          <p>The price we offer you is the lowest price that this flight has ever been offered for by the airline. Promise.</p>
+        </div>
+      </div>   
 {% endblock %}
 

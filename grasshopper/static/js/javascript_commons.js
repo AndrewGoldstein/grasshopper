@@ -59,7 +59,7 @@
               }
             }   
 
-              function populate_dropdown(ports, div){
+        function populate_dropdown(ports, div){
           for (var i = 0, l = ports.length; i < l; ++i) {
                                       document.getElementById(div).innerHTML += '<option value="'+ ports[i].city.toString() + '">' + ports[i].city.toString() +'</option>';
                                     };

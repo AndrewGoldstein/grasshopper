@@ -1,0 +1,62 @@
+
+{% extends "layout.html" %}
+{% block content %}
+      <script type="text/javascript" src="static/js/creditcard.js"></script>
+
+      <div class="jumbotron">
+
+
+
+
+        <h2>Add a payment option</h2>
+        
+
+<div class='card-wrapper'></div>
+<form>
+<!--<div class="small-6 columns">-->
+    <p line-height= ".5em"> </p>
+
+    <input placeholder="Card number" type="text" name="number"><br>
+      
+    <p line-height= ".3em"> </p>
+
+    <input placeholder="Full Name" type="text" name="first name"/><br>
+    <p line-height= ".3em"> </p>
+
+    <input placeholder="MM/YY" type="text" name="expiry"><br>
+        <p line-height= ".3em"> </p>
+
+    <input placeholder="CVC" type="text" name="cvc"><br>
+        <p line-height= ".3em"> </p>
+
+    <input type="submit" value="Submit" class="button postfix">
+
+
+                        <!--<div class="small-6 columns">
+            
+                        <div class="small-6 columns">
+              
+                        <div class="small-3 columns">
+                       
+
+                        <div class="small-3 columns">
+                  
+                        <div class="small-6 columns">-->
+                 
+</form>
+<script>
+var card = new Card({
+    form: 'form',
+    container: '.card-wrapper',
+
+    formSelectors: {
+        nameInput: 'input[name="first-name"], input[name="last-name"]'
+    }
+});
+</script>
+
+
+      </div>
+
+{% endblock %}
+

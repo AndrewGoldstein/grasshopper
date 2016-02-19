@@ -1,0 +1,192 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+      <div class="jumbotron">
+
+
+
+
+
+                    <script language="JavaScript">
+
+                    var User = "current_user";
+                    User = getCookie("current_user");
+                    console.log(User);
+                    if (User == "current_user") 
+                      {window.location = "http://andrewgoldstein.github.io/login.html"}
+
+                    var YouWrote;
+                    YouWrote=getCookie("origin");
+                    console.log(YouWrote);
+                    if (YouWrote == "origin")
+                      {YouWrote = "Nothing_Entered"}
+
+                    var YouWrote1;
+                    YouWrote1=getCookie("destination");
+                    console.log(YouWrote1);
+                    if (YouWrote1 == "destination")
+                      {YouWrote1 = "Nothing_Entered"}
+
+                    </script> 
+
+
+
+
+
+                            <h2 id="hello"></h2>
+                            <script>
+                                document.getElementById("hello").innerHTML = "Select your flights to " + YouWrote1;
+                            </script>
+
+
+
+
+
+                          <div class="main">
+                            <div class="accordion">
+
+                              <div class="accordion-section">
+                                <a id="fill-me2" class="accordion-section-title" href="#accordion-6"></a>
+                                <div id="accordion-6" class="accordion-section-content">
+                                <script>
+                                document.getElementById("fill-me2").innerHTML = YouWrote + " to " + YouWrote1;
+                                //emailjs.send("gmail","TEST_Departure_Arrival",{name: "Hello", notes: YouWrote + " to " + YouWrote1 });
+                                </script>
+                                  <span id="fill-this"> </span>
+                                  <!--<a class="btn btn-sm btn-success" onclick="myFunction()" role="button">Select</a>-->
+                                  
+
+                                </div><!--end .accordion-section-content-->
+                              </div><!--end .accordion-section-->
+
+
+                                  <p line-height= ".3em"> </p>
+
+
+                              <div class="accordion-section">
+                                <a id="fill-me-in2" class="accordion-section-title" href="#accordion-7"></a>
+                                <div id="accordion-7" class="accordion-section-content">
+                                <script>
+                                document.getElementById("fill-me-in2").innerHTML = YouWrote1 + " to " + YouWrote;
+                                </script>
+                                  <span id="fill-this2"> </span>
+                                  <!--<a class="btn btn-sm btn-success" onclick="myFunction1()" role="button">Select</a>-->
+                                </div><!--end .accordion-section-content-->
+                              </div><!--end .accordion-section-->
+                            </div><!--end .accordion-->
+                          </div>
+                          <div id='heya'> </div>
+
+                                  <br><a id="heya2" class="btn btn-sm btn-success" href = "http://localhost:5000/users/settings" role="button">Let's do this!</a>
+
+                  <script>
+                  if (YouWrote == "San Francisco") {var city = "SFO";}
+else if (YouWrote == "New York City") {var city = "JFK";}
+else if (YouWrote == "Boston") {var city = "BOS";}
+else if (YouWrote == "Seattle") {var city = "SEA";}
+else if (YouWrote1 == "Los Angeles") {var city = "LAX";}
+else if (YouWrote1 == "San Diego") {var city = "SAN";}
+else  {var city = "fail";}
+if (YouWrote1 == "San Francisco") {var city1 = "SFO";}
+else if (YouWrote1 == "New York City") {var city1 = "JFK";}
+else if (YouWrote1 == "Boston") {var city1 = "BOS";}
+else if (YouWrote1 == "Seattle") {var city1 = "SEA";}
+else if (YouWrote1 == "Los Angeles") {var city1 = "LAX";}
+else if (YouWrote1 == "San Diego") {var city1 = "SAN";}
+else  {var city1 = "fail";}
+                                function myFunction(a) {
+                                document.getElementById("fill-me2").innerHTML = "(" +city +" to "+ city1+ ")     "  + input[a];
+                                close_accordion_section();
+                                }
+                         
+                                function myFunction1(a) {
+                                document.getElementById("fill-me-in2").innerHTML = "(" +city1 +" to "+ city+ ")     "  + output[a];
+                                close_accordion_section();
+                                document.getElementById("heya2").innerHTML = "Book for just $100"
+                                }
+                                </script>
+
+
+
+
+<script>
+if (YouWrote == "San Francisco") {var city = "SFO";}
+else if (YouWrote == "New York City") {var city = "JFK";}
+else if (YouWrote == "Boston") {var city = "BOS";}
+else if (YouWrote == "Seattle") {var city = "SEA";}
+else  {var city = "fail";}
+if (YouWrote1 == "San Francisco") {var city1 = "SFO";}
+else if (YouWrote1 == "New York City") {var city1 = "JFK";}
+else if (YouWrote1 == "Boston") {var city1 = "BOS";}
+else if (YouWrote1 == "Seattle") {var city1 = "SEA";}
+else if (YouWrote1 == "Los Angeles") {var city1 = "LAX";}
+else if (YouWrote1 == "San Diego") {var city1 = "SAN";}
+else  {var city1 = "fail";}
+
+var input = [];
+var output = [];
+
+
+for (i = 0; i < flights.length; i++) {
+  if (flights[i].home == city && flights[i].dest == city1 && (flights[i].departureWeekday == "Friday" || flights[i].departureWeekday == "Saturday" )) {
+    if (flights[i].h0 >= 12) {var h0 = (flights[i].h0 - 12).toString() ; var m3 = "pm" ;}
+    else {var h0 = flights[i].h0.toString() ; var m3 = "am";}
+    if (flights[i].h1 >= 12) {var h1 = (flights[i].h1 - 12).toString() ; var m4 = "pm" ;}
+    else {var h1 = flights[i].h1.toString() ; var m4 = "am";}
+    if (flights[i].h1 <= flights[i].h0) {
+      if (flights[i].departureWeekday == "Friday") {
+      var redeye = " (Sat) ";
+      } 
+      else if (flights[i].departureWeekday == "Thursday") {
+      var redeye = " (Fri) ";
+      } 
+      else {var redeye = "";}
+    }
+    else {var redeye = "";}
+    if (h0 == 0) {h0 = '12'}
+    if (h1 == 0) {h1 = '12'}
+    input.push(flights[i].departureWeekday + " " + h0 + ":" + flights[i].m0 + m3 + " - " + redeye + h1 + ":" + flights[i].m1 + m4);
+  }
+  if (flights[i].home == city1 && flights[i].dest == city && (flights[i].departureWeekday == "Sunday" || flights[i].departureWeekday == "Monday" )) {
+    if (flights[i].h0 >= 12) {var h0 = (flights[i].h0 - 12).toString() ; var m3 = "pm" ;}
+    else {var h0 = flights[i].h0.toString() ; var m3 = "am";}
+    if (flights[i].h1 >= 12) {var h1 = (flights[i].h1 - 12).toString() ; var m4 = "pm" ;}
+    else {var h1 = flights[i].h1.toString() ; var m4 = "am";}
+    if (flights[i].h1 <= flights[i].h0) {
+      if (flights[i].departureWeekday == "Friday") {
+      var redeye = " (Sat) ";
+      } 
+      else if (flights[i].departureWeekday == "Thursday") {
+      var redeye = " (Fri) ";
+      } 
+      else {var redeye = "";}
+    }
+    else {var redeye = "";}
+    if (h0 == 0) {h0 = '12'}
+    if (h1 == 0) {h1 = '12'}
+    output.push(flights[i].departureWeekday + " " + h0 + ":" + flights[i].m0 + m3 + " - " + redeye + h1 + ":" + flights[i].m1 + m4);
+  }                            
+  
+};
+
+
+
+for (var i = 0, l = input.length; i < l; ++i) {
+                                      document.getElementById('fill-this').innerHTML += '<span>'+ input[i] + '</span> <span class="btn-group"><a class="btn btn-xs btn-primary" onclick="myFunction('+i.toString()+')">\u2713</a></span><br />';
+                                  };
+for (var i = 0, l = output.length; i < l; ++i) {
+                                      document.getElementById('fill-this2').innerHTML += '<span>'+ output[i] + '</span> <span class="btn-group"><a class="btn btn-primary btn-xl" onclick="myFunction1('+i.toString()+')">\u2713</a></span><br />';
+                                  };
+
+                                  
+</script>  
+
+
+        
+      </div>
+
+
+
+
+{% endblock %}

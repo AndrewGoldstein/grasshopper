@@ -14,8 +14,13 @@ css = Bundle(
 
 js = Bundle(
     'libs/jQuery/dist/jquery.js',
+    'js/jquery.min.js',
     'libs/bootstrap/dist/js/bootstrap.js',
+    'bootstrap/js/bootstrap.js',
+    'js/javascript_commons.js',
     'js/plugins.js',
+    'js/flight_list.js',
+    'js/accordion.js',
     filters='jsmin',
     output='public/js/common.js'
 )
@@ -24,3 +29,8 @@ assets = Environment()
 
 assets.register('js_all', js)
 assets.register('css_all', css)
+
+
+
+
+ 

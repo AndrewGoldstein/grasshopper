@@ -1,6 +1,5 @@
 var airports = 
-[
-{ 
+[{ 
 'name': 'San Francisco Intl',
 'city': "San Francisco",
 'abbv': "SFO",

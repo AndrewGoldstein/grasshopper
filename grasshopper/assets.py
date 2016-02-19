@@ -5,9 +5,9 @@ from flask_assets import Bundle, Environment
 css = Bundle(
     'libs/bootstrap/dist/css/bootstrap.css',
     'css/style.css',
-    'static/bootstrap/css/bootstrap.min.css',
-    'static/css/accordion_demo.css',
-    'static/css/jumbotron_narrow.css',
+    'bootstrap/css/bootstrap.min.css',
+    'css/accordion_demo.css',
+    'css/jumbotron_narrow.css',
     filters='cssmin',
     output='public/css/common.css'
 )

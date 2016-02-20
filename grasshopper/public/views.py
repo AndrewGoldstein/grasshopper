@@ -30,6 +30,7 @@ def home():
             #redirect_url = request.args.get('next') or url_for('user.jumbo')
             return redirect(url_for('user.jumbo'))
         else:
+            print "error"
             flash_errors(form)
     return render_template('public/home.html', form=form)
 
@@ -55,6 +56,7 @@ def register():
         flash('Thank you for registering. You can now log in.', 'success')
         return redirect(url_for('public.home'))
     else:
+        print "error"
         flash_errors(form)
     return render_template('public/register.html', form=form)
 

@@ -1,5 +1,6 @@
 # Everything needed in production
 
+setuptools==18.5
 wheel==0.26.0
 git+https://github.com/atgreen/libffi.git
 

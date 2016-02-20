@@ -26,12 +26,12 @@ def members():
     return render_template('users/members.html')
 
 @blueprint.route('/flights')
-def flightt():
+def flights():
     """Flights select page."""
     return render_template('users/flights.html')
 
 @blueprint.route('/settings', methods=['GET', 'POST'])
-def setting():
+def settings():
     """Personal settings page."""
     form = CreditcardForm(request.form, csrf_enabled=False)
     if form.validate_on_submit():

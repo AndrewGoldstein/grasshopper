@@ -38,6 +38,9 @@ class User(UserMixin, SurrogatePK, Model):
     last_name = Column(db.String(30), nullable=True)
     active = Column(db.Boolean(), default=False)
     is_admin = Column(db.Boolean(), default=False)
+    card_number = Column(db.String(30), nullable=True)
+    expiration = Column(db.String(30), nullable=True)
+    cvc = Column(db.String(30), nullable=True)
 
     def __init__(self, username, email, password=None, **kwargs):
         """Create instance."""

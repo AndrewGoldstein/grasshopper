@@ -1,9 +1,12 @@
 
 {% extends "layout.html" %}
+
+
+
 {% block content %}
       <script type="text/javascript" src="static/js/creditcard.js"></script>
 
-      <div class="jumbotron">
+<div class="jumbotron">
 
 
 
@@ -12,38 +15,25 @@
         
 
 <div class='card-wrapper'></div>
-<form>
-<!--<div class="small-6 columns">-->
+
     <p line-height= ".5em"> </p>
 
-    <input placeholder="Card number" type="text" name="number"><br>
-      
-    <p line-height= ".3em"> </p>
-
-    <input placeholder="Full Name" type="text" name="first name"/><br>
-    <p line-height= ".3em"> </p>
-
-    <input placeholder="MM/YY" type="text" name="expiry"><br>
-        <p line-height= ".3em"> </p>
-
-    <input placeholder="CVC" type="text" name="cvc"><br>
-        <p line-height= ".3em"> </p>
-
-    <input type="submit" value="Submit" class="button postfix">
+	<center><form id="creditcardForm" class="form form-register" method="POST" action="" role="form">
+            {{ form.hidden_tag() }}
+            <input placeholder="Card number" class="form-group" name="number">
+            </input>
+            <!--<input placeholder="Full Name" class="form-group" name="first_name">
+            </input>-->
+            <input placeholder="MM/YY" class="form-group" name="expiry">
+            </input>
+            <input placeholder="CVC" class="form-group" name = "cvc">
+            </input>
+            <p><input class="btn btn-default btn-submit" type="submit" value="Submit"></p>
+    </form></center>
 
 
-                        <!--<div class="small-6 columns">
-            
-                        <div class="small-6 columns">
-              
-                        <div class="small-3 columns">
-                       
 
-                        <div class="small-3 columns">
-                  
-                        <div class="small-6 columns">-->
-                 
-</form>
+
 <script>
 var card = new Card({
     form: 'form',
@@ -56,7 +46,7 @@ var card = new Card({
 </script>
 
 
-      </div>
+</div>
 
 {% endblock %}
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """The app module, containing the app factory function."""
 from flask import Flask, render_template
-
+global current_user_user
 from grasshopper import public, user
 from grasshopper.assets import assets
 from grasshopper.extensions import bcrypt, cache, db, debug_toolbar, login_manager, migrate

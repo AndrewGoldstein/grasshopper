@@ -38,3 +38,27 @@ class RegisterForm(Form):
             self.email.errors.append('Email already registered')
             return False
         return True
+
+
+
+class CreditcardForm(Form):
+    """Creditcard form."""
+
+    number = StringField('number',
+                           validators=[DataRequired(), Length(min=3, max=25)])
+    expiry = StringField('expiry',
+                        validators=[DataRequired(), Length(min=2, max=40)])
+    cvc = StringField('cvc',
+                             validators=[DataRequired(), Length(min=2, max=40)])
+
+    def __init__(self, *args, **kwargs):
+        """Create instance."""
+        super(CreditcardForm, self).__init__(*args, **kwargs)
+        self.user = None
+
+    def validate(self):
+        """Validate the form."""
+        initial_validation = super(CreditcardForm, self).validate()
+        if not initial_validation:
+            return False
+        return True

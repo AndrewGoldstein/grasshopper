@@ -1,7 +1,7 @@
 # Everything needed in production
 
 wheel==0.26.0
-libffi==3.0.13
+https://github.com/atgreen/libffi.git
 
 # Flask
 Flask==0.10.1

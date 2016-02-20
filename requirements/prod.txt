@@ -1,7 +1,7 @@
 # Everything needed in production
 
 wheel==0.26.0
-https://github.com/atgreen/libffi.git/zipball/master
+git+https://github.com/atgreen/libffi.git
 
 # Flask
 Flask==0.10.1

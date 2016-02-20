@@ -36,7 +36,7 @@ def home():
 
 
 @blueprint.route('/logout/')
-@login_required
+#@login_required
 def logout():
     """Logout."""
     logout_user()

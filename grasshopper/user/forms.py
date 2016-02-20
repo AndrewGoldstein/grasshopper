@@ -54,6 +54,7 @@ class CreditcardForm(Form):
     def __init__(self, *args, **kwargs):
         """Create instance."""
         super(CreditcardForm, self).__init__(*args, **kwargs)
+        print "hello"
         self.user = None
 
     def validate(self):

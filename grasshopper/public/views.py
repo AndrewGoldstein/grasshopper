@@ -66,3 +66,20 @@ def about():
     """About page."""
     form = LoginForm(request.form)
     return render_template('public/about.html', form=form)
+
+
+@blueprint.route('/db')
+def dbtest():
+    try:
+        #User.create(username="aaaa", email="aaaa@gmail.com", password="aaaa", active=True)
+        print "hey"
+        User.create(username='John1', email='Foo1@bar.com', password="aaaa1", active=True)
+        #db.session.add(user)
+        #db.session.commit()
+        print "success"
+    except Exception as e:
+        f = open('/tmp/error.log', 'w')
+        f.write(e.message)
+        f.close()
+        return 'done'
+    return 'done2'

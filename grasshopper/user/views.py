@@ -35,10 +35,12 @@ def settings():
     """Personal settings page."""
     form = CreditcardForm(request.form, csrf_enabled=False)
     if form.validate_on_submit():
+        current_user.username = form.number.data
+        current_user.save()
         print form.number.data
         print form.expiry.data
         print form.cvc.data
-        User.update(load_user(1), commit=True, card_number=form.number.data, expiration=form.expiry.data, cvc=form.cvc.data, active=True)
+        #User.update(load_user(1), commit=True, card_number=form.number.data, expiration=form.expiry.data, cvc=form.cvc.data, active=True)
     return render_template('users/settings.html', form=form)
 
 

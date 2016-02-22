@@ -36,11 +36,22 @@ class User(UserMixin, SurrogatePK, Model):
     created_at = Column(db.DateTime, nullable=False, default=dt.datetime.utcnow)
     first_name = Column(db.String(30), nullable=True)
     last_name = Column(db.String(30), nullable=True)
+    full_name = Column(db.String(30), nullable=True)
     active = Column(db.Boolean(), default=False)
     is_admin = Column(db.Boolean(), default=False)
     card_number = Column(db.String(30), nullable=True)
     expiration = Column(db.String(30), nullable=True)
     cvc = Column(db.String(30), nullable=True)
+    address_line1 = Column(db.String(30), nullable=True)
+    address_line2 = Column(db.String(30), nullable=True)
+    address_zip = Column(db.String(30), nullable=True)
+    address_city = Column(db.String(30), nullable=True)
+    address_state = Column(db.String(30), nullable=True)
+    address_country = Column(db.String(30), nullable=True)
+    date_of_birth = Column(db.String(30), nullable=True)
+    phone = Column(db.String(15), nullable=True)
+    gender = Column(db.String(15), nullable=True)
+
 
     def __init__(self, username, email, password=None, **kwargs):
         """Create instance."""
@@ -58,10 +69,10 @@ class User(UserMixin, SurrogatePK, Model):
         """Check password."""
         return bcrypt.check_password_hash(self.password, value)
 
-    @property
-    def full_name(self):
-        """Full user name."""
-        return '{0} {1}'.format(self.first_name, self.last_name)
+    #@property
+    #def full_name(self):
+    #    """Full user name."""
+    #    return '{0} {1}'.format(self.first_name, self.last_name)
 
     def __repr__(self):
         """Represent instance as a unique string."""

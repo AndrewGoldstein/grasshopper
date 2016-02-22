@@ -50,11 +50,29 @@ class CreditcardForm(Form):
                         validators=[DataRequired(), Length(min=2, max=40)])
     cvc = StringField('cvc',
                              validators=[DataRequired(), Length(min=2, max=40)])
+    address_zip = StringField('address_zip',
+                             validators=[DataRequired(), Length(min=2, max=40)])
+    address_line1 = StringField('address_line1',
+                             validators=[DataRequired(), Length(min=2, max=100)])
+    address_line2 = StringField('address_line2',
+                             validators=[DataRequired(), Length(min=2, max=40)])
+    address_city = StringField('address_city',
+                             validators=[DataRequired(), Length(min=2, max=40)])
+    address_state = StringField('address_state',
+                             validators=[DataRequired(), Length(min=1, max=40)])
+    address_country= StringField('address_country',
+                             validators=[DataRequired(), Length(min=2, max=40)])
+    date_of_birth = StringField('date_of_birth',
+                             validators=[DataRequired(), Length(min=2, max=40)])
+    #full_name = StringField('full_name',
+    #                         validators=[DataRequired(), Length(min=2, max=40)])
+    phone = StringField('phone',
+                             validators=[DataRequired(), Length(min=2, max=40)])
+
 
     def __init__(self, *args, **kwargs):
         """Create instance."""
         super(CreditcardForm, self).__init__(*args, **kwargs)
-        print "hello"
         self.user = None
 
     def validate(self):

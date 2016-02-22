@@ -5,6 +5,8 @@ from flask_assets import Bundle, Environment
 css = Bundle(
     'libs/bootstrap/dist/css/bootstrap.css',
     'css/style.css',
+    'css/intlTelInput.css',
+    'css/telephone_demo.css',
     'bootstrap/css/bootstrap.min.css',
     'css/accordion_demo.css',
     'css/jumbotron_narrow.css',

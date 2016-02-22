@@ -4,46 +4,140 @@
 
 
 {% block content %}
-      <script type="text/javascript" src="static/js/creditcard.js"></script>
+
+
 
 <div class="jumbotron">
 
+        <h2>Update Your Personal Information</h2>
 
-
-
-        <h2>Add a payment option</h2>
-        
-
-<div class='card-wrapper'></div>
-
+  
     <p line-height= ".5em"> </p>
 
-	<center><form id="creditcardForm" class="form form-register" method="POST" action="" role="form">
+        <div class='card-wrapper'></div>
+    <p line-height= ".5em"> </p>
+    <center><form id="creditcardForm" class="form form-register" method="POST" action="" role="form">
             {{ form.hidden_tag() }}
-            <input placeholder="Card number" class="form-group" name="number">
-            </input>
-            <!--<input placeholder="Full Name" class="form-group" name="first_name">
+            
+            <!--<label class="radio-inline"><input type="radio" name="optradio">Male</label>
+            <label class="radio-inline"><input type="radio" name="optradio">Female</label>
+            <input placeholder="Gender" class="form-group" name="g">
             </input>-->
+            <!--<input placeholder="Known Traveler Number" class="form-group" name = "c">
+            </input>-->
+            <!-- email maybe via gmail auth?-->
+            <!-- primary phone -->
+            <!-- Frequent Flyer Numbers -->
+            <!-- Window or Aisle preference-->
+
+
+
+            <input placeholder="Card Number" class="form-group" name="number">
+            </input>
+            <!--<input placeholder="Full Name" type="text" class="form-group" name="name">
+            </input>-->
+            <!-- to do: create function that splits full name and adds two hidden fields for first and last name-->
             <input placeholder="MM/YY" class="form-group" name="expiry">
             </input>
+            <!-- optional? cvc for jetblue and alaska -->
             <input placeholder="CVC" class="form-group" name = "cvc">
             </input>
+            <!--billing address-->
+             <input placeholder="Address Line 1" class="form-group" name="address_line1">
+            </input>
+            <input placeholder="Address Line 2" class="form-group" name="address_line2">
+            </input>
+            <input id="zip" placeholder="Zip Code" class="form-group" name="address_zip">
+            </input>
+            <input id="zip-city" placeholder="City" class="form-group" name="address_city">
+            </input>
+             <input id="zip-state" placeholder="State" class="form-group" name="address_state">
+                <!--<span id="small-state-icon" style="color:green; font-size:32px;" class="what"></span>-->
+            </input>
+             <input id="zip-country" placeholder="Country" class="form-group" name="address_country">
+            </input>
+
+            <input placeholder="Date of Birth" class="form-group" name="date_of_birth">
+            </input>
+            
+            <input id="phone" placeholder="503 444 5555" type="tel" name="phone">
+                <span id="valid-msg" style="color:green" class="hide">✓</span>
+                <span id="error-msg" style="color:red" class="hide">&times; Try Again</span>
+            </input>
+
             <p><input class="btn btn-default btn-submit" type="submit" value="Submit"></p>
     </form></center>
 
 
 
-
 <script>
+var thefield = $("#zip");
+
+// on blur: validate
+thefield.blur(function() {
+    if (thefield.val().length == 5) {
+      loc = zipcodes[thefield.val()];
+      console.log(loc);
+      document.getElementById("zip-city").value = loc[":city"];
+      document.getElementById("zip-state").value = loc[":state_name"];
+      document.getElementById("zip-country").value = "United States";
+      //document.getElementById("small-state-icon").className = "stateface stateface-replace stateface-" + loc[':state_code'].toLowerCase();  
+    } else {
+      console.log("NOT 5 failed to add zip");
+    }
+});
+
+
+
+
 var card = new Card({
     form: 'form',
     container: '.card-wrapper',
 
     formSelectors: {
-        nameInput: 'input[name="first-name"], input[name="last-name"]'
+        nameInput: 'input[name="name"], input[name="last-name"]'
     }
 });
+
+
+
+var telInput = $("#phone"),
+  errorMsg = $("#error-msg"),
+  validMsg = $("#valid-msg");
+
+// initialise plugin
+telInput.intlTelInput({
+  utilsScript: "/static/js/address_entry_utils.js"
+});
+
+var reset = function() {
+  telInput.removeClass("error");
+  errorMsg.addClass("hide");
+  validMsg.addClass("hide");
+};
+
+// on blur: validate
+telInput.blur(function() {
+  reset();
+  if ($.trim(telInput.val())) {
+    if (telInput.intlTelInput("isValidNumber")) {
+      validMsg.removeClass("hide");
+    } else {
+      telInput.addClass("error");
+      errorMsg.removeClass("hide");
+    }
+  }
+});
+
+// on keyup / change flag: reset
+telInput.on("keyup change", reset);
 </script>
+
+
+
+
+
+
 
 
 </div>

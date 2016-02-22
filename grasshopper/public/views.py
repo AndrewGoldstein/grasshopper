@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Public section, including homepage and signup."""
-from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask import Blueprint, flash, redirect, render_template, request, url_for, g
 from flask_login import login_required, login_user, logout_user
 
 from grasshopper.extensions import login_manager
@@ -26,6 +26,8 @@ def home():
     if request.method == 'POST':
         if form.validate_on_submit():
             login_user(form.user)
+            with open("foo.py", "w") as f:
+                f.write("X=" + str(form.user.id))
             #flash('You are logged in.', 'success')
             #redirect_url = request.args.get('next') or url_for('user.jumbo')
             return redirect(url_for('user.jumbo'))
@@ -36,7 +38,7 @@ def home():
 
 
 @blueprint.route('/logout/')
-#@login_required
+@login_required
 def logout():
     """Logout."""
     logout_user()
@@ -67,7 +69,7 @@ def about():
     form = LoginForm(request.form)
     return render_template('public/about.html', form=form)
 
-
+"""
 @blueprint.route('/db')
 def dbtest():
     try:
@@ -83,3 +85,4 @@ def dbtest():
         f.close()
         return 'done'
     return 'done2'
+"""

@@ -29,37 +29,16 @@
     <script type="text/javascript" src="static/js/flight_list.js"></script>
     <script type="text/javascript" src="static/js/javascript_commons.js"></script>
     <meta name="google-signin-client_id" content="552278765316-h7q89rqnrpe9ro728nrk0d2hhe4lih1s.apps.googleusercontent.com">
-         <script type="text/javascript" src="static/js/creditcard.js"></script>
-  <link rel="stylesheet" href="static/css/intlTelInput.css">
-  <link rel="stylesheet" href="static/css/telephone_demo.css">
-  <script src="static/js/jquery.min.js"></script>
-  <script src="static/js/intlTelInput.js"></script>
+    <script type="text/javascript" src="static/js/creditcard.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/intlTelInput.js"></script>
     <script src="static/js/usa_zipcodes.js"></script>
     <link rel="stylesheet" href="static/css/stateface.css">
+    <link rel="stylesheet" href="static/css/intlTelInput.css">
+    <link rel="stylesheet" href="static/css/telephone_demo.css">
+ 
 
-  <script>
-        $("#phone").intlTelInput({
-          // allowDropdown: false,
-          // autoHideDialCode: false,
-          // autoPlaceholder: false,
-          // dropdownContainer: "body",
-          // excludeCountries: ["us"],
-          // geoIpLookup: function(callback) {
-          //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-          //     var countryCode = (resp && resp.country) ? resp.country : "";
-          //     callback(countryCode);
-          //   });
-          // },
-          // initialCountry: "auto",
-          // nationalMode: false,
-          // numberType: "MOBILE",
-          // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-          // preferredCountries: ['cn', 'jp'],
-          // separateDialCode: true,
-          utilsScript: "static/js/address_entry_utils.js"
-        });
-      </script>
-    
+  
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -82,7 +61,7 @@
 
     <div class="container">
 
-{% block navbar %}{% endblock %}
+    {% block navbar %}{% endblock %}
 
 
 
@@ -107,35 +86,36 @@
       </div>
 
 
-          {% block content %}{% endblock %}
+      {% block content %}{% endblock %}
    
 
 
       <footer class="footer">
         <small>
 
-  <ul class="company">
-    <li> &copy; 2015 Weekend Flyer, Inc.</li>
-  </ul>
+          <ul class="company">
+            <li> &copy; 2015 Weekend Flyer, Inc.</li>
+          </ul>
 
-    <ul class="footer-nav">
-
-      <li><a href="{{ url_for('public.about') }}">About    </a></li>
-      <li><a href="mailto:flyer.weekend@gmail.com">Contact</a></li>
-      <li><a class="fa fa-sign-out" href="{{ url_for('public.logout') }}">Sign Out</a></li>    
-    </ul>
-  </small>
+          <ul class="footer-nav">
+            <li><a href="{{ url_for('public.about') }}">About    </a></li>
+            <li><a href="mailto:flyer.weekend@gmail.com">Contact</a></li>
+            <li><a class="fa fa-sign-out" href="{{ url_for('public.logout') }}">Sign Out</a></li>    
+          </ul>
+        </small>
       </footer>
 
     </div> <!-- /container -->
 
-<!-- JavaScript at the bottom for fast page loading -->
-{% assets "js_all" %}
+    <!-- JavaScript at the bottom for fast page loading -->
+    {% assets "js_all" %}
     <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-{% endassets %}
-{% block js %}{% endblock %}
-  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-<!-- end scripts -->
+    {% endassets %}
+
+    {% block js %}{% endblock %}
+  
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+  <!-- end scripts -->
 
   </body>
 </html>

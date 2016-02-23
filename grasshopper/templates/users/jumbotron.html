@@ -1,16 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
-    <!--<h1>Welcome {{ current_user.username }}</h1>-->
-  <script type="text/javascript" src="static/js/airport_list.js"></script>
-  <div class="jumbotron">
 
+      <!--<h1>Welcome {{ current_user.username }}</h1>-->
+      <script type="text/javascript" src="static/js/airport_list.js"></script>
+      
+      <div class="jumbotron">
 
-        <h2>What are you doing this weekend?</h2>
-        <p class="lead">Take a new adventure, visit a friend, hop on a romantic getaway. Spontaneity has reached new heights. Search last minute flight deals for this coming weekend!</p>
+            <h2>What are you doing this weekend?</h2>
+            <p class="lead">Take a new adventure, visit a friend, hop on a romantic getaway. Spontaneity has reached new heights. Search last minute flight deals for this coming weekend!</p>
 
-
-        <p>
-
+            <p>
                           <div class="main">
                             <div class="accordion">
 
@@ -23,6 +22,7 @@
                                     <script> populate_dropdown(airports, 'item1');  </script> 
                                 </div><!--end .accordion-section-content-->
                               </div><!--end .accordion-section-->
+                              
                               <p line-height= ".3em"> </p>
 
                               <div class="accordion-section">
@@ -30,40 +30,41 @@
                                 <div id="accordion-5" class="accordion-section-content">
                                   <select id="item2" onChange='passCookie("destination", this.value)'>
                                     <option value="select">Select Destination</option>
-								  </select>
+                                  </select>
                                 </div><!--end .accordion-section-content-->
                               </div><!--end .accordion-section-->
                             
                             </div><!--end .accordion-->
                           </div>
 
-            <br>
-            <a class="btn btn-lg btn-success" href="{{ url_for('user.flights') }}" role="button">Let's Jet!</a>
-        </p>
+                          <br>
+                          
+                          <a class="btn btn-lg btn-success" href="{{ url_for('user.flights') }}" role="button">Let's Jet!</a>
+            </p>
       </div>
 
       <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Non-Stop Flights</h4>
-          <p>The Weekend Flyer doesn't have time for layovers and missed connections. Wheels up, Wheels down.</p>
+          <div class="col-lg-6">
+              <h4>Non-Stop Flights Only</h4>
+              <p>The Weekend Flyer doesn't have time for layovers and missed connections. Wheels up, Wheels down.</p>
 
-          <h4>Roundtrip</h4>
-          <p>It's good to go and it's good to come back. Our fares include both legs of your flight.</p>
+              <h4>Roundtrip</h4>
+              <p>It's good to go and it's good to come back. Our fares include both legs of your journey.</p>
 
-          <h4>First Come, First Serve</h4>
-          <p>There's a limited set of tickets available for any given flight. The boarding door may close at any time.</p>
-        </div>
+              <h4>First Come, First Serve</h4>
+              <p>There's a limited set of tickets available for any given flight. The boarding door may close at any time.</p>
+          </div>
 
-        <div class="col-lg-6">
-          <h4>(Long) Weekend Travel Only</h4>
-          <p>The Weekend Flyer is not a substitute for last minute weekday travel bookings, we're just giving the common man a shot at weekend greatness.</p>
+          <div class="col-lg-6">
+              <h4>(Long) Weekend Travel Only</h4>
+              <p>The Weekend Flyer currently doesn't offer last minute weekday travel bookings, we're just giving the common man a shot at weekend greatness.</p>
 
-          <h4>Limited Set of Airports</h4>
-          <p>We're starting with flights to Seattle, New York, San Francisco, Boston, and Las Vegas. We'll expand soon, don't worry.</p>
+              <h4>Different Destinations Every Weekend</h4>
+              <p>We'll surprise you every week: just because you see a destination available this week doesn't mean it'll be available next weekend </p>
 
-          <h4>Low Fare Guarantee</h4>
-          <p>The price we offer you is the lowest price that this flight has ever been offered for by the airline. Promise.</p>
-        </div>
+              <h4>Low Fare Guarantee</h4>
+              <p>You won't find a lower roundtrip fare to your destination. Promise.</p>
+          </div>
       </div>
 
 {% endblock %}

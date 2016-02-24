@@ -31,7 +31,6 @@ class ProdConfig(Config):
     #url = urlparse.urlparse(os.environ["SQLALCHEMY_DATABASE_URI"])
     #conn = psycopg2.connect( database=url.path[1:],user=url.username)
 
-
 class DevConfig(Config):
     """Development configuration."""
 

@@ -19,10 +19,9 @@
     <center>
         <form id="creditcardForm" class="form form-register" method="POST" action="" role="form">
             {{ form.hidden_tag() }}
-          
-            <input placeholder="Card Number" class="form-group" name="number"></input>
-            <!--<input placeholder="Full Name" type="text" class="form-group" name="name"></input>-->
+            <input placeholder="Full Name" type="text" class="form-group" name="full_name"></input>
             <!-- to do: create function that splits full name and adds two hidden fields for first and last name-->
+            <input placeholder="Card Number" class="form-group" name="number"></input>
             <input placeholder="MM/YY" class="form-group" name="expiry"></input>
             <input placeholder="CVC" class="form-group" name = "cvc"></input><!-- optional? cvc for jetblue and alaska -->
             <!--begin billing address-->
@@ -39,8 +38,8 @@
                 <span id="valid-msg" style="color:green" class="hide">✓</span>
                 <span id="error-msg" style="color:red" class="hide">&times; Try Again</span>
             </input>
-
-            <p><input class="btn btn-default btn-submit" type="submit" value="Submit"></p>
+            <br><br>
+            <input class="btn btn-primary btn-submit" type="submit" value="Submit"></input>
         </form>
     </center>
 
@@ -57,7 +56,12 @@
             <!-- Window or Aisle preference-->
 
 
-
+<!--<input type="text" id="date" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="date" value="09-01-2013">
+<script>
+$(function(){
+    $('#date').combodate();    
+});
+</script>-->
 
     <script>
     var thefield = $("#zip");
@@ -82,7 +86,7 @@
         form: 'form',
         container: '.card-wrapper',
         formSelectors: {
-            nameInput: 'input[name="name"], input[name="last-name"]'
+            nameInput: 'input[name="full_name"]'
         }
     });
 

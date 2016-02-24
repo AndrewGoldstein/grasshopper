@@ -4,10 +4,6 @@
       function defineCookie(cookie_name, cookie_result) {
                 if (document.cookie != document.cookie) {index = document.cookie.indexOf(cookie_name);} else { index = -1;}
                 if (index == -1) { document.cookie=cookie_name+"="+cookie_result+"; expires=Monday, 04-Apr-2020 05:00:00 GMT"; }
-                console.log("hello");
-                console.log(cookie_name);
-                console.log(cookie_result);
-                console.log("hello");
             }
 
             function close_accordion_section() {
@@ -19,8 +15,6 @@
                 if (value != ''){
                     document.getElementById(id).innerHTML = value;
                     defineCookie(id, value);
-                    console.log(id);
-                    console.log(value);
                     close_accordion_section();
                 }
             }
@@ -73,7 +67,6 @@
     function onSignIn2(googleUser) {
       var profile = googleUser.getBasicProfile();
             try {
-                  console.log(googleUser);
                   defineCookie('current_user', profile.getName());  
                   window.location = "http://localhost:5000/users" ;
             }

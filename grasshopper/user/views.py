@@ -35,10 +35,14 @@ def settings():
 
     form = CreditcardForm(request.form, csrf_enabled=False)
     if form.validate_on_submit():
-        User.update(load_user(X), commit=True, card_number=form.number.data, expiration=form.expiry.data, cvc=form.cvc.data, address_line1=form.address_line1.data, address_line2=form.address_line2.data, address_zip=form.address_zip.data, address_city=form.address_city.data, address_state=form.address_state.data, address_country=form.address_country.data, date_of_birth=form.date_of_birth.data, phone=form.phone.data, active=True) # full_name=form.full_name.data
+        User.update(load_user(X), commit=True, card_number=form.number.data, expiration=form.expiry.data, cvc=form.cvc.data, address_line1=form.address_line1.data, address_line2=form.address_line2.data, address_zip=form.address_zip.data, address_city=form.address_city.data, address_state=form.address_state.data, address_country=form.address_country.data, date_of_birth=form.date_of_birth.data, phone=form.phone.data, full_name=form.full_name.data, active=True) # full_name=form.full_name.data
         return redirect(url_for('user.members'))
     return render_template('users/settings.html', form=form)
 
+@blueprint.route('/summary')
+def summary():
+    """members page."""
+    return render_template('users/summary.html')
 
 
 

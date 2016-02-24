@@ -40,7 +40,7 @@
                                 <div id="accordion-6" class="accordion-section-content">
                                 <script>
                                   document.getElementById("fill-me2").innerHTML = YouWrote + " to " + YouWrote1;
-                                  //emailjs.send("gmail","TEST_Departure_Arrival",{name: "Hello", notes: YouWrote + " to " + YouWrote1 });
+                                  //emailjs.send("gmail","test_departure_arrival",{name: "Hello", notes: YouWrote + " to " + YouWrote1 });
                                 </script>
                                 <span id="fill-this"> </span>                                  
                                 </div><!--end .accordion-section-content-->
@@ -57,55 +57,39 @@
                               </div><!--end .accordion-section-->
                             </div><!--end .accordion-->
                           </div>
-
+                           {% if current_user.card_number  %} 
+                          <br><a id="heya2" class="btn btn-sm btn-success" href = "{{ url_for('user.summary') }}" role="button">Let's do this!</a>
+                          {% else %}
                           <br><a id="heya2" class="btn btn-sm btn-success" href = "{{ url_for('user.settings') }}" role="button">Let's do this!</a>
+                          {% endif %}
+
 
           <script>
-                  if (YouWrote == "San Francisco") {var city = "SFO";}
-                  else if (YouWrote == "New York City") {var city = "JFK";}
-                  else if (YouWrote == "Boston") {var city = "BOS";}
-                  else if (YouWrote == "Seattle") {var city = "SEA";}
-                  else if (YouWrote1 == "Los Angeles") {var city = "LAX";}
-                  else if (YouWrote1 == "San Diego") {var city = "SAN";}
-                  else  {var city = "fail";}
-                  
-                  if (YouWrote1 == "San Francisco") {var city1 = "SFO";}
-                  else if (YouWrote1 == "New York City") {var city1 = "JFK";}
-                  else if (YouWrote1 == "Boston") {var city1 = "BOS";}
-                  else if (YouWrote1 == "Seattle") {var city1 = "SEA";}
-                  else if (YouWrote1 == "Los Angeles") {var city1 = "LAX";}
-                  else if (YouWrote1 == "San Diego") {var city1 = "SAN";}
-                  else  {var city1 = "fail";}
 
-                                function myFunction(a) {
-                                document.getElementById("fill-me2").innerHTML = "(" +city +" to "+ city1+ ")     "  + input[a];
-                                close_accordion_section();
-                                }
+                  for (i = 0; i < airports.length; i++) {
+                    if (airports[i].city == YouWrote) {var city = airports[i].abbv}
+                  }
+
+                  for (i = 0; i < airports.length; i++) {
+                    if (airports[i].city == YouWrote1) {var city1 = airports[i].abbv}
+                  }
+
+
+                  function myFunction(a) {
+                      document.getElementById("fill-me2").innerHTML = "(" +city +" to "+ city1+ ")     "  + input[a];
+                      close_accordion_section();
+                      defineCookie("input",input[a]);
+                  }
                          
-                                function myFunction1(a) {
-                                document.getElementById("fill-me-in2").innerHTML = "(" +city1 +" to "+ city+ ")     "  + output[a];
-                                close_accordion_section();
-                                document.getElementById("heya2").innerHTML = "Book for just $100"
-                                }
-          </script>
-
-          <script>
-                  if (YouWrote == "San Francisco") {var city = "SFO";}
-                  else if (YouWrote == "New York City") {var city = "JFK";}
-                  else if (YouWrote == "Boston") {var city = "BOS";}
-                  else if (YouWrote == "Seattle") {var city = "SEA";}
-                  else  {var city = "fail";}
-                  if (YouWrote1 == "San Francisco") {var city1 = "SFO";}
-                  else if (YouWrote1 == "New York City") {var city1 = "JFK";}
-                  else if (YouWrote1 == "Boston") {var city1 = "BOS";}
-                  else if (YouWrote1 == "Seattle") {var city1 = "SEA";}
-                  else if (YouWrote1 == "Los Angeles") {var city1 = "LAX";}
-                  else if (YouWrote1 == "San Diego") {var city1 = "SAN";}
-                  else  {var city1 = "fail";}
+                  function myFunction1(a) {
+                      document.getElementById("fill-me-in2").innerHTML = "(" +city1 +" to "+ city+ ")     "  + output[a];
+                      close_accordion_section();
+                      defineCookie("output",output[a]);
+                      document.getElementById("heya2").innerHTML = "Book for just $100"
+                  }
 
                   var input = [];
                   var output = [];
-
 
                   for (i = 0; i < flights.length; i++) {
                     if (flights[i].home == city && flights[i].dest == city1 && (flights[i].departureWeekday == "Friday" || flights[i].departureWeekday == "Saturday" )) {
@@ -145,14 +129,14 @@
                       if (h0 == 0) {h0 = '12'}
                       if (h1 == 0) {h1 = '12'}
                       output.push(flights[i].departureWeekday + " " + h0 + ":" + flights[i].m0 + m3 + " - " + redeye + h1 + ":" + flights[i].m1 + m4);
-                    }                            
-                    
+                    }                             
                   };
 
 
                   for (var i = 0, l = input.length; i < l; ++i) {
                       document.getElementById('fill-this').innerHTML += '<span>'+ input[i] + '</span> <span class="btn-group"><a class="btn btn-xs btn-primary" onclick="myFunction('+i.toString()+')">\u2713</a></span><br />';
                   };
+
                   for (var i = 0, l = output.length; i < l; ++i) {
                       document.getElementById('fill-this2').innerHTML += '<span>'+ output[i] + '</span> <span class="btn-group"><a class="btn btn-primary btn-xl" onclick="myFunction1('+i.toString()+')">\u2713</a></span><br />';
                   };

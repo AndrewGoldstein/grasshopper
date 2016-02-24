@@ -64,8 +64,8 @@ class CreditcardForm(Form):
                              validators=[DataRequired(), Length(min=2, max=40)])
     date_of_birth = StringField('date_of_birth',
                              validators=[DataRequired(), Length(min=2, max=40)])
-    #full_name = StringField('full_name',
-    #                         validators=[DataRequired(), Length(min=2, max=40)])
+    full_name = StringField('full_name',
+                             validators=[DataRequired(), Length(min=2, max=40)])
     phone = StringField('phone',
                              validators=[DataRequired(), Length(min=2, max=40)])
 

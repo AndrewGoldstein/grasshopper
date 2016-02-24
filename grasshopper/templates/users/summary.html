@@ -1,0 +1,213 @@
+
+{% extends "layout.html" %}
+{% block content %}
+ 
+      <div class="jumbotron">
+<h3>Please confirm that the information below is correct:</h3>
+
+                <div class='card-wrapper'></div>
+<script>function send_emails(){
+   emailjs.send("gmail","test_departure_arrival",{name: "Hello", notes: YouWrote + " to " + YouWrote1 + f0 + f1 + wow });
+ } </script> 
+            <script language="JavaScript">
+
+                    var User = "current_user";
+                    User = getCookie("current_user");
+                    //console.log(User);
+                    //if (User == "current_user") 
+                    //  {window.location = "http://andrewgoldstein.github.io/login.html"}
+
+                    var YouWrote;
+                    YouWrote=getCookie("origin");
+                    // TODO: ERROR HANDLING
+                    if (YouWrote == "origin")
+                      {YouWrote = "Nothing_Entered"}
+
+                    var YouWrote1;
+                    YouWrote1=getCookie("destination");
+                    // TODO: ERROR HANDLING
+                    if (YouWrote1 == "destination")
+                      {YouWrote1 = "Nothing_Entered"}
+
+                    var f0;
+                    f0=getCookie("input");
+                    // TODO: ERROR HANDLING
+                    if (f0 == "input")
+                      {f0 = "Nothing_Entered"}
+
+                    var f1;
+                    f1=getCookie("output");
+                    // TODO: ERROR HANDLING
+                    if (f1 == "output")
+                      {f1 = "Nothing_Entered"}
+ 
+
+                    var card = new Card({
+                        form: 'form',
+                        container: '.card-wrapper',
+                        formSelectors: {
+                            nameInput: 'input[name="full_name"]'
+                        },
+                        placeholders: {
+                            number: "{{ current_user.card_number }}",
+                            name: "{{ current_user.full_name }}",
+                            expiry: "{{ current_user.expiration }}"
+                        },
+                        debug:true
+                    });
+
+                    var wow = "{{ current_user.expiration }}"
+
+            </script> 
+
+
+<table class="table table-hover">
+   
+   <thead>
+      <tr>
+         <th>       </th>
+         <th></th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <tr>
+         <td>Credit Card Number</td>
+         <td>{{ current_user.card_number }}</td>
+      </tr>
+      
+      <tr>
+         <td>Credit Card Expiration</td>
+         <td>{{ current_user.expiration }}</td>
+      </tr>
+      <tr>
+         <td>Credit Card CVC</td>
+         <td>{{ current_user.cvc }}</td>
+      </tr>      
+      <tr>
+         <td>Credit Card Address</td>
+         <td>{{ current_user.full_name}}</td>
+      </tr>
+     <tr>
+         <td></td>
+         <td>{{ current_user.address_line1 }}, {{ current_user.address_line2 }}</td>
+      </tr> 
+      <tr>
+         <td></td>
+         <td>{{ current_user.address_city }}, {{ current_user.address_state }}   {{ current_user.address_zip }}  </td>
+      </tr>      
+
+      <tr>
+         <td>Date of Birth</td>
+         <td>{{ current_user.date_of_birth }}</td>
+      </tr>
+
+   </tbody>
+   
+</table>
+
+<br>
+<br>
+      <h2>Flight Details</h2>
+            <h4 id="result4">
+            </h4>
+                        
+
+<table class="table table-hover">
+   
+   <thead>
+      <tr>
+         <th> </th>
+         <th></th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <tr>
+         <td>Outbound Flight</td>
+         <td id="result0"></td>
+      </tr>
+      <tr>
+         <td></td>
+         <td id="result1"></td>
+      </tr>
+      <tr>
+         <td></td>
+         <td id="result2"></td>
+      </tr>            
+      <tr>
+         <td></td>
+         <td></td>
+      </tr>     
+            
+      <tr>
+         <td>Returning Flight</td>
+         <td id="result5"></td>
+      </tr>
+      <tr>
+         <td></td>
+         <td id="result6"></td>
+      </tr>
+      <tr>
+         <td></td>
+         <td id="result3"></td>
+      </tr>  
+
+   </tbody>
+   
+</table>
+            
+
+
+  <script>  document.getElementById("result4").innerHTML = "You're headed from " + YouWrote + " to " +YouWrote1 + "!<br><br>"; 
+  document.getElementById("result0").innerHTML = "Departing " + YouWrote; 
+    document.getElementById("result1").innerHTML = "Arriving "  + YouWrote1; 
+document.getElementById("result5").innerHTML = "Departing " + YouWrote1; 
+    document.getElementById("result6").innerHTML = "Arriving " + YouWrote; 
+          document.getElementById("result2").innerHTML = f0; 
+                           document.getElementById("result3").innerHTML = f1; </script>
+
+
+      </div>
+
+
+<br>
+
+<!--
+<form id="creditcardForm" class="form form-register" method="POST" action="" role="form">
+          
+            <input placeholder="Card Number" class="form-group" name="number" type="hidden">4343444444444444</input>
+            
+            <input placeholder="MM/YY" class="form-group" name="expiry" type="hidden">12/12</input>
+
+            <p><input class="btn btn-default btn-submit" type="submit" value="Submit"></p>
+        </form>
+
+Payment
+    full_name  {{ current_user.full_name }} <br>
+    card_number     {{ current_user.card_number }}  <br>
+    expiration     {{ current_user.expiration }} <br>
+    cvc       {{ current_user.cvc }} <br>
+    address_line1   {{ current_user.address_line1 }} <br>
+    address_line2    {{ current_user.address_line2 }} <br>
+    address_zip    {{ current_user.address_zip }} <br>
+    address_city    {{ current_user.address_city }} <br>
+    address_state  {{ current_user.address_state }} <br>
+    
+    date_of_birth  {{ current_user.date_of_birth }} <br>
+    phone  {{ current_user.phone }} <br>
+    email
+flight info 
+
+
+    <h1>Welcome user id {{ current_user.id }}</h1>
+    <p> created at {{current_user.created_at  }} </p>
+-->
+<center><br><a class="btn btn-lrg btn-success" onClick="send_emails()" href = "{{ url_for('user.jumbo') }}"  role="button">Complete Purchase!</a><center>
+       
+
+      
+
+
+{% endblock %}
+

@@ -6,12 +6,9 @@
 Confirm that this information is correct
 
     password {{ current_user.password }} <br>
-    created_at {{ current_user.created_at }}  <br>
     first_name {{ current_user.first_name }} <br>
     last_name  {{ current_user.last_name }}  <br>
     full_name  {{ current_user.full_name }} <br>
-    active      {{ current_user.active }} <br>
-    is_admin    {{ current_user.is_admin }} <br>
     card_number     {{ current_user.card_number }}  <br>
     expiration     {{ current_user.expiration }} <br>
     cvc       {{ current_user.cvc }} <br>
@@ -25,8 +22,6 @@ Confirm that this information is correct
     phone  {{ current_user.phone }} <br>
     gender     {{ current_user.gender }} <br>
 
-    <h1>Welcome user id {{ current_user.id }}</h1>
-    <p> created at {{current_user.created_at  }} </p>
-
+    
 {% endblock %}
 

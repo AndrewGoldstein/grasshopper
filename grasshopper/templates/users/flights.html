@@ -156,7 +156,7 @@
                   }
                   console.log(index);
                   for (var i = 0, l = input.length; i < l; ++i) {
-                      document.getElementById('fill-this').innerHTML += '<span>'+ input[index[i]] + '</span> <span class="btn-group"><a class="btn btn-xs btn-primary" onclick="myFunction('+i.toString()+')">\u2713</a></span><br />';
+                      document.getElementById('fill-this').innerHTML += '<span>'+ input[index[i]] + '</span> <span class="btn-group"><a class="btn btn-xs btn-primary" onclick="myFunction('+index[i].toString()+')">\u2713</a></span><br />';
                   };
 
 
@@ -178,7 +178,7 @@
                   }
 
                   for (var i = 0, l = output.length; i < l; ++i) {
-                      document.getElementById('fill-this2').innerHTML += '<span>'+ output[index[i]] + '</span> <span class="btn-group"><a class="btn btn-primary btn-xl" onclick="myFunction1('+i.toString()+')">\u2713</a></span><br />';
+                      document.getElementById('fill-this2').innerHTML += '<span>'+ output[index[i]] + '</span> <span class="btn-group"><a class="btn btn-primary btn-xl" onclick="myFunction1('+index[i].toString()+')">\u2713</a></span><br />';
                   };
               
           </script>  

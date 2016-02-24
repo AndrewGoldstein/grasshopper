@@ -93,6 +93,9 @@
 
                   var input = [];
                   var output = [];
+                  var outbound_times = [];
+                  var return_times = [];
+
 
                   for (i = 0; i < flights.length; i++) {
                     if (flights[i].home == city && flights[i].dest == city1 && (flights[i].departureWeekday == "Friday" || flights[i].departureWeekday == "Saturday" )) {
@@ -113,6 +116,7 @@
                       if (h0 == 0) {h0 = '12'}
                       if (h1 == 0) {h1 = '12'}
                       input.push(flights[i].departureWeekday + " " + h0 + ":" + flights[i].m0 + m3 + " - " + redeye + h1 + ":" + flights[i].m1 + m4);
+                      outbound_times.push(parseInt(flights[i].departureDate.slice(5,8))*1000000+parseInt(flights[i].departureDate.slice(8,11))*10000+parseInt(flights[i].h0)*100+parseInt(flights[i].m0));
                     }
                     if (flights[i].home == city1 && flights[i].dest == city && (flights[i].departureWeekday == "Sunday" || flights[i].departureWeekday == "Monday" )) {
                       if (flights[i].h0 >= 12) {var h0 = (flights[i].h0 - 12).toString() ; var m3 = "pm" ;}
@@ -132,16 +136,49 @@
                       if (h0 == 0) {h0 = '12'}
                       if (h1 == 0) {h1 = '12'}
                       output.push(flights[i].departureWeekday + " " + h0 + ":" + flights[i].m0 + m3 + " - " + redeye + h1 + ":" + flights[i].m1 + m4);
+                      return_times.push(parseInt(flights[i].departureDate.slice(5,8))*1000000+parseInt(flights[i].departureDate.slice(8,11))*10000+parseInt(flights[i].h0)*100+parseInt(flights[i].m0));
+
                     }                             
                   };
-
-
+                  var sorted = []; 
+                  var n;
+                  for (var i = 0, l = outbound_times.length; i < l; ++i) {
+                    n = 0;
+                    for (var j = 0, k = outbound_times.length; j < k; ++j) {
+                      if (outbound_times[i] > outbound_times[j]){ n+=1; }
+                    sorted[i] = n;
+                  }}
+                  console.log(outbound_times);
+                  console.log(sorted);
+                  var index = [];
+                  for (var i = 0, l = outbound_times.length; i < l; ++i) {
+                    index[i] = sorted.indexOf(i);
+                  }
+                  console.log(index);
                   for (var i = 0, l = input.length; i < l; ++i) {
-                      document.getElementById('fill-this').innerHTML += '<span>'+ input[i] + '</span> <span class="btn-group"><a class="btn btn-xs btn-primary" onclick="myFunction('+i.toString()+')">\u2713</a></span><br />';
+                      document.getElementById('fill-this').innerHTML += '<span>'+ input[index[i]] + '</span> <span class="btn-group"><a class="btn btn-xs btn-primary" onclick="myFunction('+i.toString()+')">\u2713</a></span><br />';
                   };
 
+
+
+
+
+
+                  sorted = []; 
+                  for (var i = 0, l = return_times.length; i < l; ++i) {
+                    n = 0;
+                    for (var j = 0, k = return_times.length; j < k; ++j) {
+                      if (return_times[i] > return_times[j]){ n+=1; }
+                    sorted[i] = n;
+                  }}
+
+                  index = [];
+                  for (var i = 0, l = return_times.length; i < l; ++i) {
+                    index[i] = sorted.indexOf(i);
+                  }
+
                   for (var i = 0, l = output.length; i < l; ++i) {
-                      document.getElementById('fill-this2').innerHTML += '<span>'+ output[i] + '</span> <span class="btn-group"><a class="btn btn-primary btn-xl" onclick="myFunction1('+i.toString()+')">\u2713</a></span><br />';
+                      document.getElementById('fill-this2').innerHTML += '<span>'+ output[index[i]] + '</span> <span class="btn-group"><a class="btn btn-primary btn-xl" onclick="myFunction1('+i.toString()+')">\u2713</a></span><br />';
                   };
               
           </script>  

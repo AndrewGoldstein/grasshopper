@@ -7,7 +7,7 @@
 
                 <div class='card-wrapper'></div>
 <script>function send_emails(){
-   emailjs.send("gmail","test_departure_arrival",{name: "Hello", notes: YouWrote + " to " + YouWrote1 + f0 + f1 + wow });
+   //emailjs.send("gmail","test_departure_arrival",{name: "Hello", notes: YouWrote + " to " + YouWrote1 + f0 + f1 + wow });
  } </script> 
             <script language="JavaScript">
 
@@ -57,7 +57,7 @@
                     });
 
                     var wow = "{{ current_user.expiration }}"
-
+                    console.log(wow)
             </script> 
 
 
@@ -203,7 +203,7 @@ flight info
     <h1>Welcome user id {{ current_user.id }}</h1>
     <p> created at {{current_user.created_at  }} </p>
 -->
-<center><br><a class="btn btn-lrg btn-success" onClick="send_emails()" href = "{{ url_for('user.jumbo') }}"  role="button">Complete Purchase!</a><center>
+<center><br><a class="btn btn-lrg btn-success" onClick="send_emails" href = "{{ url_for('user.jumbo') }}"  role="button">Complete Purchase!</a><center>
        
 
       

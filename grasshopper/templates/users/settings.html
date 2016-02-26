@@ -9,24 +9,66 @@
 
 <div class="jumbotron">
 
+  {% if current_user.card_number  %}
+
+
     <h2>Update Your Personal Information</h2>
 
   
     <p line-height= ".5em"> </p>
     <div class='card-wrapper'></div>
     <p line-height= ".5em"> </p>
-    
+
+
     <center>
         <form id="creditcardForm" class="form form-register" method="POST" action="" role="form">
             {{ form.hidden_tag() }}
-            <input placeholder="Full Name" type="text" class="form-group" name="full_name"></input>
+            <input placeholder="Full Name" type="text" class="form-group" name="full_name" value="{{ current_user.full_name }}"></input>
+            <!-- to do: create function that splits full name and adds two hidden fields for first and last name-->
+            <input placeholder="Card Number" class="form-group" name="number" value="{{ current_user.card_number }}"></input>
+            <input placeholder="MM/YY" class="form-group" name="expiry" value="{{ current_user.expiration }}"></input>
+            <input placeholder="CVC" class="form-group" name = "cvc" value="{{ current_user.cvc }}"></input><!-- optional? cvc for jetblue and alaska -->
+            <!--begin billing address-->
+            <input placeholder="Address Line 1" class="form-group" name="address_line1" value="{{ current_user.address_line1 }}"></input>
+            <input placeholder="(Optional) Address Line 2" class="form-group" name="address_line2" value="{{ current_user.address_line2 }}"></input>
+            <input placeholder="Zip Code" id="zip"  class="form-group" name="address_zip" value="{{ current_user.address_zip }}"></input>
+            <input placeholder="City" id="zip-city"  class="form-group" name="address_city" value="{{ current_user.address_city }}"></input>
+            <input placeholder="State" id="zip-state" class="form-group" name="address_state" value="{{ current_user.address_state }}">
+                <!--<span id="small-state-icon" style="color:green; font-size:32px;" class="what"></span>-->
+            </input>
+            <input placeholder="Country" id="zip-country" class="form-group" name="address_country" value="{{ current_user.address_country }}"></input>
+                        <br><br><p>Personal Information</p><br>
+            <input placeholder="Date of Birth" class="form-group" name="date_of_birth" value="{{ current_user.date_of_birth }}"></input>
+            <input placeholder="503 444 1738" id="phone" type="tel" name="phone" value="{{ current_user.phone }}">
+                <span id="valid-msg" style="color:green" class="hide">✓</span>
+                <span id="error-msg" style="color:red" class="hide">&times; Try Again</span>
+            </input>
+            <br><br>
+            <input id="to_summary1" class="btn btn-primary btn-submit" type="submit" href="{{ url_for('user.jumbo') }}" value="Save"></input>
+        </form>
+    </center>
+
+  {% else %}
+
+    <h2>Enter Your Personal Information</h2>
+
+  
+    <p line-height= ".5em"> </p>
+    <div class='card-wrapper'></div>
+    <p line-height= ".5em"> </p>
+
+
+    <center>
+        <form id="creditcardForm" class="form form-register" method="POST" action="" role="form">
+            {{ form.hidden_tag() }}
+            <input placeholder="Full Name" type="text" class="form-group" name="full_name" value=""></input>
             <!-- to do: create function that splits full name and adds two hidden fields for first and last name-->
             <input placeholder="Card Number" class="form-group" name="number"></input>
             <input placeholder="MM/YY" class="form-group" name="expiry"></input>
             <input placeholder="CVC" class="form-group" name = "cvc"></input><!-- optional? cvc for jetblue and alaska -->
             <!--begin billing address-->
             <input placeholder="Address Line 1" class="form-group" name="address_line1"></input>
-            <input placeholder="Address Line 2" class="form-group" name="address_line2"></input>
+            <input placeholder="(Optional) Address Line 2" class="form-group" name="address_line2" value="        "></input>
             <input id="zip" placeholder="Zip Code" class="form-group" name="address_zip"></input>
             <input id="zip-city" placeholder="City" class="form-group" name="address_city"></input>
             <input id="zip-state" placeholder="State" class="form-group" name="address_state">
@@ -34,15 +76,16 @@
             </input>
             <input id="zip-country" placeholder="Country" class="form-group" name="address_country"></input>
             <input placeholder="Date of Birth" class="form-group" name="date_of_birth"></input>
-            <input id="phone" placeholder="503 444 5555" type="tel" name="phone">
+            <input id="phone" placeholder="503 444 1738" type="tel" name="phone">
                 <span id="valid-msg" style="color:green" class="hide">✓</span>
                 <span id="error-msg" style="color:red" class="hide">&times; Try Again</span>
             </input>
             <br><br>
-            <input class="btn btn-primary btn-submit" type="submit" href="{{ url_for('user.members') }}" value="Submit"></input>
+            <input id="to_summary2" class="btn btn-primary btn-submit" type="submit" href="{{ url_for('user.jumbo') }}" value="Save"></input>
         </form>
     </center>
-
+  
+  {% endif %}
 
     <!-- optional fields for above form  -->
 
@@ -78,7 +121,12 @@ $(function(){
           console.log("FAILURE");
         }
     });
-
+    
+    //get_cookie("input")
+    //get_cookie("output")
+    //how long does the cookie remain -- across different login sessions?
+    //if cookie_for_input and output:
+    //  reset the "href" variable for "to_summary1/2" to "summary.html"
 
 
 

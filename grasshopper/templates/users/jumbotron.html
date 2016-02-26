@@ -16,7 +16,7 @@
                               <div class="accordion-section">
                                 <a id="origin" class="accordion-section-title" href="#accordion-4">Select your Home City</a>
                                 <div id="accordion-4" class="accordion-section-content">
-                                    <select id="item1" onChange='passCookie("origin", this.value); reloaddiv("item2"); '>
+                                    <select id="item1" onChange='passCookie("origin", this.value); reloaddiv("item2"); deleteCookie("output"," "); deleteCookie("input"," ") '>
                                       <option value="select">Timbuktu</option>
                                     </select>
                                     <script> populate_dropdown(airports, 'item1');  </script> 
@@ -28,7 +28,7 @@
                               <div class="accordion-section">
                                 <a id="destination" class="accordion-section-title" href="#accordion-5">Select your Destination</a>
                                 <div id="accordion-5" class="accordion-section-content">
-                                  <select id="item2" onChange='passCookie("destination", this.value)'>
+                                  <select id="item2" onChange='passCookie("destination", this.value); deleteCookie("output"," "); deleteCookie("input"," ")'>
                                     <option value="select">Select Destination</option>
                                   </select>
                                 </div><!--end .accordion-section-content-->

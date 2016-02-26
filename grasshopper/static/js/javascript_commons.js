@@ -5,6 +5,10 @@
                 if (document.cookie != document.cookie) {index = document.cookie.indexOf(cookie_name);} else { index = -1;}
                 if (index == -1) { document.cookie=cookie_name+"="+cookie_result+"; expires=Monday, 04-Apr-2020 05:00:00 GMT"; }
             }
+            function deleteCookie(cookie_name, cookie_result) {
+                if (document.cookie != document.cookie) {index = document.cookie.indexOf(cookie_name);} else { index = -1;}
+                if (index == -1) { document.cookie=cookie_name+"="+cookie_result+"; expires=Monday, 04-Apr-2010 05:00:00 GMT"; }
+            }
 
             function close_accordion_section() {
                 jQuery('.accordion .accordion-section-title').removeClass('active');

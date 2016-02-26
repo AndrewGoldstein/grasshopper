@@ -33,7 +33,9 @@
                     f0=getCookie("input");
                     // TODO: ERROR HANDLING
                     if (f0 == "input")
-                      {f0 = "Nothing_Entered"}
+                      {f0 = "Nothing_Entered";
+                      window.location = "http://www.google.com";
+                    }
 
                     var f1;
                     f1=getCookie("output");
@@ -56,8 +58,6 @@
                         debug:true
                     });
 
-                    var wow = "{{ current_user.expiration }}"
-                    console.log(wow)
             </script> 
 
 
@@ -88,10 +88,19 @@
          <td>Credit Card Address</td>
          <td>{{ current_user.full_name}}</td>
       </tr>
-     <tr>
+
+      {% if current_user.address_line2 %}
+      <tr>
          <td></td>
          <td>{{ current_user.address_line1 }}, {{ current_user.address_line2 }}</td>
       </tr> 
+      {% else %}
+      <tr>
+         <td></td>
+         <td>{{ current_user.address_line1 }}</td>
+      </tr> 
+      {% endif %}
+
       <tr>
          <td></td>
          <td>{{ current_user.address_city }}, {{ current_user.address_state }}   {{ current_user.address_zip }}  </td>
@@ -102,6 +111,10 @@
          <td>{{ current_user.date_of_birth }}</td>
       </tr>
 
+      <tr>
+         <td>Phone Number</td>
+         <td>{{ current_user.phone }}</td>
+      </tr>
    </tbody>
    
 </table>
@@ -128,7 +141,7 @@
          <td id="result0"></td>
       </tr>
       <tr>
-         <td></td>
+         <td><a href='http://localhost:5000/users/flights#accordion-6'>(Change)</a></td>
          <td id="result1"></td>
       </tr>
       <tr>
@@ -145,7 +158,7 @@
          <td id="result5"></td>
       </tr>
       <tr>
-         <td></td>
+         <td><a href='http://localhost:5000/users/flights#accordion-7'>(Change)</a></td>
          <td id="result6"></td>
       </tr>
       <tr>

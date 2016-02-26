@@ -19,11 +19,13 @@ class Config(object):
 
 class ProdConfig(Config):
     """Production configuration."""
-
+    print "hey its in prod mode"
     ENV = 'prod'
+    #DB_NAME = 'prod.db'
     DEBUG = False
-    #SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/example'  # TODO: Change me
+    #SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/users' 
     SQLALCHEMY_DATABASE_URI = 'postgres://hkwdxzsksohoae:mi4SH7b8_4fB4RhENknqsDj-A3@ec2-54-83-198-111.compute-1.amazonaws.com:5432/de336vejtlpkej'
+
 
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar
     
@@ -33,7 +35,7 @@ class ProdConfig(Config):
 
 class DevConfig(Config):
     """Development configuration."""
-
+    print "hey we're in dev"
     ENV = 'dev'
     DEBUG = True
     DB_NAME = 'dev.db'
@@ -43,7 +45,9 @@ class DevConfig(Config):
     DEBUG_TB_ENABLED = True
     ASSETS_DEBUG = True  # Don't bundle/minify static assets
     CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
+ 
 
+    
 
 class TestConfig(Config):
     """Test configuration."""

@@ -57,10 +57,10 @@
                               </div><!--end .accordion-section-->
                             </div><!--end .accordion-->
                           </div>
-                           {% if current_user.card_number  %} 
+                          {% if current_user.card_number  %} 
                           <br><a id="heya2" class="btn btn-sm btn-success disabled" href = "{{ url_for('user.summary') }}" role="button">Let's do this!</a>
                           {% else %}
-                          <br><a id="heya3" class="btn btn-sm btn-success diasbled" href = "{{ url_for('user.settings') }}" role="button">Let's do this!</a>
+                          <br><a id="heya2" class="btn btn-sm btn-success disabled" href = "{{ url_for('user.settings') }}" role="button">Let's do this!</a>
                           {% endif %}
 
 
@@ -86,9 +86,7 @@
                       close_accordion_section();
                       defineCookie("output",output[a]);
                       document.getElementById("heya2").className = "btn btn-sm btn-success";
-                      document.getElementById("heya3").className = "btn btn-sm btn-success";
                       document.getElementById("heya2").innerHTML = "Book for just $100";
-                      document.getElementById("heya3").innerHTML = "Book for just $100";
                   }
 
                   var input = [];
@@ -110,6 +108,9 @@
                         else if (flights[i].departureWeekday == "Thursday") {
                         var redeye = " (Fri) ";
                         } 
+                        else if (flights[i].departureWeekday == "Sunday") {
+                        var redeye = " (Mon) ";
+                        } 
                         else {var redeye = "";}
                       }
                       else {var redeye = "";}
@@ -130,6 +131,9 @@
                         else if (flights[i].departureWeekday == "Thursday") {
                         var redeye = " (Fri) ";
                         } 
+                        else if (flights[i].departureWeekday == "Sunday") {
+                        var redeye = " (Mon) ";
+                        } 
                         else {var redeye = "";}
                       }
                       else {var redeye = "";}
@@ -148,19 +152,57 @@
                       if (outbound_times[i] > outbound_times[j]){ n+=1; }
                     sorted[i] = n;
                   }}
-                  console.log(outbound_times);
-                  console.log(sorted);
+
                   var index = [];
                   for (var i = 0, l = outbound_times.length; i < l; ++i) {
                     index[i] = sorted.indexOf(i);
                   }
-                  console.log(index);
+
                   for (var i = 0, l = input.length; i < l; ++i) {
                       document.getElementById('fill-this').innerHTML += '<span>'+ input[index[i]] + '</span> <span class="btn-group"><a class="btn btn-xs btn-primary" onclick="myFunction('+index[i].toString()+')">\u2713</a></span><br />';
                   };
 
 
 
+            if (getCookie("input")!=undefined && getCookie("output")!=undefined ){
+                  console.log(getCookie("input"));
+                  $(document).ready(function() {
+
+                    $('.accordion-6').hide();
+
+                    $('a[href$=accordion-6]').click(function() {
+                      $('#accordion-6').show();
+                    });
+
+                    $('a[href$=accordion-7]').click(function() {
+                      $('#accordion-7').show();
+                    });
+                    for (i = 0; i < airports.length; i++) {
+                      if (airports[i].city == getCookie("origin")) {var city_abbv = airports[i].abbv}
+                    }
+
+                    for (i = 0; i < airports.length; i++) {
+                      if (airports[i].city == getCookie("destination")) {var city1_abbv = airports[i].abbv}
+                    }
+                    if ( location.hash != 0 && location.hash == '#accordion-6' ){
+                       $('a[href$=accordion-6]').trigger('click');
+                       document.getElementById('fill-me-in2').innerHTML = "("+ city1_abbv + " to " + city_abbv + ")  " +getCookie("output");
+                      document.getElementById("heya2").className = "btn btn-sm btn-success";
+                    }
+
+                    if ( location.hash != 0 && location.hash == '#accordion-7' ){
+                       $('a[href$=accordion-7]').trigger('click');
+                       document.getElementById('fill-me2').innerHTML = "("+ city_abbv + " to " + city1_abbv + ")  " +getCookie("input");
+                    }
+
+
+                    
+                  });
+
+
+                
+            }
+            
 
 
 

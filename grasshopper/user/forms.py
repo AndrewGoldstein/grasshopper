@@ -44,29 +44,28 @@ class RegisterForm(Form):
 class CreditcardForm(Form):
     """Creditcard form."""
 
-    number = StringField('number',
+    number = StringField('Credit Card Number',
                            validators=[DataRequired(), Length(min=3, max=25)])
-    expiry = StringField('expiry',
+    expiry = StringField('Credit Card Expiration',
                         validators=[DataRequired(), Length(min=2, max=40)])
-    cvc = StringField('cvc',
+    cvc = StringField('Credit Card CVC',
                              validators=[DataRequired(), Length(min=2, max=40)])
-    address_zip = StringField('address_zip',
+    address_zip = StringField('Credit Card Zip Code',
                              validators=[DataRequired(), Length(min=2, max=40)])
-    address_line1 = StringField('address_line1',
+    address_line1 = StringField('Address Line 1',
                              validators=[DataRequired(), Length(min=2, max=100)])
-    address_line2 = StringField('address_line2',
+    address_line2 = StringField('Address Line 2', validators=[])
+    address_city = StringField('City',
                              validators=[DataRequired(), Length(min=2, max=40)])
-    address_city = StringField('address_city',
-                             validators=[DataRequired(), Length(min=2, max=40)])
-    address_state = StringField('address_state',
+    address_state = StringField('State',
                              validators=[DataRequired(), Length(min=1, max=40)])
-    address_country= StringField('address_country',
+    address_country= StringField('Country',
                              validators=[DataRequired(), Length(min=2, max=40)])
-    date_of_birth = StringField('date_of_birth',
+    date_of_birth = StringField('Date of Birth',
                              validators=[DataRequired(), Length(min=2, max=40)])
-    full_name = StringField('full_name',
+    full_name = StringField('Full Name',
                              validators=[DataRequired(), Length(min=2, max=40)])
-    phone = StringField('phone',
+    phone = StringField('Phone Number',
                              validators=[DataRequired(), Length(min=2, max=40)])
 
 
@@ -80,4 +79,5 @@ class CreditcardForm(Form):
         initial_validation = super(CreditcardForm, self).validate()
         if not initial_validation:
             return False
+
         return True

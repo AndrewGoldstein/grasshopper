@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
   <head>
     <meta charset="utf-8">
@@ -46,26 +46,25 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!--<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
        (function(){
           emailjs.init("user_P9ZRzstNVrsKAxg5cttib");
        })();
-    </script>
+    </script>-->
 
   </head>
 
 
   <body style="background:lightblue;">
-
-
-    <div class="container" >
+  <!--<body style="background: url(static/img/runway3.jpg) no-repeat center ; position:relative; top:0px; ">-->
+    <div class="container" style="position:relative;">
 
     {% block navbar %}{% endblock %}
 
 
 
-      <div class="header clearfix">
+      <div class="header clearfix" style="align:center;" >
         <nav>
         
           {% if current_user and current_user.is_authenticated %}
@@ -83,9 +82,10 @@
 
         </nav>
         {% if current_user and current_user.is_authenticated %}
-        <h3 class="text-muted"><a style="text-decoration: none" href="{{ url_for('user.jumbo') }}">Weekend Flyer</a></h3>
+        <h3 class="text-muted"><a style="color:black;" href="{{ url_for('user.jumbo') }}">Weekend Flyer</a></h3>
         {% else %}
-        <h3 class="text-muted"><a style="text-decoration: none" href="{{ url_for('public.home') }}">Weekend Flyer</a></h3>
+        <h3 class="text-muted"><a style="color:black;" href="{{ url_for('public.home') }}">Weekend Flyer</a></h3>
+        <!--text-decoration: none"-->
         {% endif %}
       </div>
 
@@ -103,6 +103,7 @@
       </div><!-- end row -->
           {% endif %}
       {% endwith %}
+
       {% block content %}{% endblock %}
    
 

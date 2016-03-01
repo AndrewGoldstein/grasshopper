@@ -7,7 +7,7 @@
 
 
 
-<div class="jumbotron">
+<div class="jumbotron" style="opacity:0.95">
 
   {% if current_user.card_number  %}
 
@@ -61,13 +61,13 @@
     <center>
         <form id="creditcardForm" class="form form-register" method="POST" action="" role="form">
             {{ form.hidden_tag() }}
-            <input placeholder="Full Name" type="text" class="form-group" name="full_name" value=""></input>
+            <input id="creditcard" placeholder="Full Name" type="text" class="form-group" name="full_name" value=""></input>
             <!-- to do: create function that splits full name and adds two hidden fields for first and last name-->
             <input placeholder="Card Number" class="form-group" name="number"></input>
             <input placeholder="MM/YY" class="form-group" name="expiry"></input>
             <input placeholder="CVC" class="form-group" name = "cvc"></input><!-- optional? cvc for jetblue and alaska -->
             <!--begin billing address-->
-            <input placeholder="Address Line 1" class="form-group" name="address_line1"></input>
+            <input id="address" placeholder="Address Line 1" class="form-group" name="address_line1"></input>
             <input placeholder="(Optional) Address Line 2" class="form-group" name="address_line2" value="        "></input>
             <input id="zip" placeholder="Zip Code" class="form-group" name="address_zip"></input>
             <input id="zip-city" placeholder="City" class="form-group" name="address_city"></input>
@@ -75,7 +75,7 @@
                 <!--<span id="small-state-icon" style="color:green; font-size:32px;" class="what"></span>-->
             </input>
             <input id="zip-country" placeholder="Country" class="form-group" name="address_country"></input>
-            <input placeholder="Date of Birth" class="form-group" name="date_of_birth"></input>
+            <input id="dob" placeholder="Date of Birth" class="form-group" name="date_of_birth"></input>
             <input id="phone" placeholder="503 444 1738" type="tel" name="phone">
                 <span id="valid-msg" style="color:green" class="hide">✓</span>
                 <span id="error-msg" style="color:red" class="hide">&times; Try Again</span>

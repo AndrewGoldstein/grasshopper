@@ -2,7 +2,7 @@
 {% extends "layout.html" %}
 {% block content %}
  
-      <div class="jumbotron">
+      <div class="jumbotron" style="opacity:0.92;">
 <h3>Please confirm that the information below is correct:</h3>
 
                 <div class='card-wrapper'></div>
@@ -72,20 +72,20 @@
    
    <tbody>
       <tr>
-         <td>Credit Card Number</td>
-         <td>{{ current_user.card_number }}</td>
+         <td>Credit Card Information<a href="http://localhost:5000/users/settings#creditcard">  (edit)</a></td>
+         <td>Number: {{ current_user.card_number }}</td>
       </tr>
       
       <tr>
-         <td>Credit Card Expiration</td>
-         <td>{{ current_user.expiration }}</td>
+         <td></td>
+         <td>Expires {{ current_user.expiration }}</td>
       </tr>
       <tr>
-         <td>Credit Card CVC</td>
-         <td>{{ current_user.cvc }}</td>
+         <td></td>
+         <td>CVC Code: {{ current_user.cvc }}</td>
       </tr>      
       <tr>
-         <td>Credit Card Address</td>
+         <td>Credit Card Address<a href="http://localhost:5000/users/settings#address">  (edit)</a></td>
          <td>{{ current_user.full_name}}</td>
       </tr>
 
@@ -107,13 +107,13 @@
       </tr>      
 
       <tr>
-         <td>Date of Birth</td>
+         <td>Date of Birth<a href="http://localhost:5000/users/settings#dob">  (edit)</a></td>
          <td>{{ current_user.date_of_birth }}</td>
       </tr>
 
       <tr>
-         <td>Phone Number</td>
-         <td>{{ current_user.phone }}</td>
+         <td>Phone Number<a href="http://localhost:5000/users/settings#phone">  (edit)</a></td>
+         <td>{{ current_user.phone }} </td>
       </tr>
    </tbody>
    

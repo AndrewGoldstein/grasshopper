@@ -4,10 +4,11 @@
       <!--<h1>Welcome {{ current_user.username }}</h1>-->
       <script type="text/javascript" src="static/js/airport_list.js"></script>
       
-      <div class="jumbotron">
+      <div class="jumbotron" style="background-color:transparent; opacity:0.95;">
 
+          
             <h2>What are you doing this weekend?</h2>
-            <p class="lead">Take a new adventure, visit a friend, hop on a romantic getaway. Spontaneity has reached new heights. Search last minute flight deals for this coming weekend!</p>
+            <p class="lead" style="color:black;">Take a new adventure, visit a friend, hop on a romantic getaway. Spontaneity has reached new heights. Search last minute flight deals for this coming weekend!</p>
 
             <p>
                           <div class="main">
@@ -15,7 +16,7 @@
 
                               <div class="accordion-section">
                                 <a id="origin" class="accordion-section-title" href="#accordion-4">Select your Home City</a>
-                                <div id="accordion-4" class="accordion-section-content">
+                                <div id="accordion-4" class="accordion-section-content" >
                                     <select id="item1" onChange='passCookie("origin", this.value); reloaddiv("item2"); deleteCookie("output"," "); deleteCookie("input"," ") '>
                                       <option value="select">Timbuktu</option>
                                     </select>
@@ -23,7 +24,7 @@
                                 </div><!--end .accordion-section-content-->
                               </div><!--end .accordion-section-->
                               
-                              <p line-height= ".3em"> </p>
+                              <!--<p line-height= ".3em" style="background-color:transparent;"> </p>-->
 
                               <div class="accordion-section">
                                 <a id="destination" class="accordion-section-title" href="#accordion-5">Select your Destination</a>
@@ -39,32 +40,34 @@
 
                           <br>
                           
-                          <a class="btn btn-lg btn-success" href="{{ url_for('user.flights') }}" role="button">Let's Jet!</a>
+                          <a class="btn btn-lg btn-primary" href="{{ url_for('user.flights') }}" role="button">Let's Jet!</a>
             </p>
+      <br><br><br>
       </div>
 
-      <div class="row marketing">
-          <div class="col-lg-6">
-              <h4>Non-Stop Flights Only</h4>
-              <p>The Weekend Flyer doesn't have time for layovers and missed connections. Wheels up, Wheels down.</p>
+          <div class="row marketing" style="color:dark-blue;" >
+              <div class="col-lg-6">
+                  <h4>Non-Stop Flights Only</h4>
+                  <p>The Weekend Flyer doesn't have time for layovers and missed connections. Wheels up, Wheels down.</p>
 
-              <h4>Roundtrip</h4>
-              <p>It's good to go and it's good to come back. Our fares include both legs of your journey.</p>
+                  <h4>Roundtrip</h4>
+                  <p>It's good to go and it's good to come back. Our fares include both legs of your journey.</p>
 
-              <h4>First Come, First Serve</h4>
-              <p>There's a limited set of tickets available for any given flight. The boarding door may close at any time.</p>
+                  <h4>First Come, First Serve</h4>
+                  <p>There's a limited set of tickets available for any given flight. The boarding door may close at any time.</p>
+                  
+              </div>
+<h4>(Long) Weekend Travel Only</h4>
+                  <p>The Weekend Flyer currently doesn't offer last minute weekday travel bookings, we're just giving the common man a shot at weekend greatness.</p>
+
+                  <h4>Different Destinations Every Weekend</h4>
+                  <p>We'll surprise you every week: just because you see a destination available this week doesn't mean it'll be available next weekend </p>
+
+                  <h4>Low Fare Guarantee</h4>
+                  <p>You won't find a lower roundtrip fare to your destination. Promise.</p>
+              <div class="col-lg-6">
+              </div>
           </div>
-
-          <div class="col-lg-6">
-              <h4>(Long) Weekend Travel Only</h4>
-              <p>The Weekend Flyer currently doesn't offer last minute weekday travel bookings, we're just giving the common man a shot at weekend greatness.</p>
-
-              <h4>Different Destinations Every Weekend</h4>
-              <p>We'll surprise you every week: just because you see a destination available this week doesn't mean it'll be available next weekend </p>
-
-              <h4>Low Fare Guarantee</h4>
-              <p>You won't find a lower roundtrip fare to your destination. Promise.</p>
-          </div>
-      </div>
+      
 
 {% endblock %}

@@ -1,5 +1,19 @@
 
 {% if current_user and current_user.is_authenticated %}
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="nav">
+      <div class="containera" style="margin-left:10%; margin-right:10%;">
+        <ul class="pull-left">
+          <li><a href="#">Weekend Flyer</a></li>
+        </ul>
+        <ul class="pull-right">
+          <li><a href="{{ url_for('public.register') }}">Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </div><!-- /.container -->
+</nav>
     <!--<ul class="nav navbar-nav navbar-right">
         <li>
             <p class="navbar-text"><a class="navbar-link" href="{{ url_for('user.jumbo') }}">Logged in as {{ current_user.username }}</a></p>
@@ -31,7 +45,7 @@
 
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ url_for('public.register') }}">Create account</a></li>
+        <li><a href="{{ url_for('public.register') }}">Sign up</a></li>
       </ul>
       <form id="loginForm" method="POST" class="navbar-form form-inline navbar-right" action="/" role="login">
         {{ form.hidden_tag() }}

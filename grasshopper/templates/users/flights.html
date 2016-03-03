@@ -2,8 +2,6 @@
 {% extends "layout.html" %}
 {% block content %}
 
-      <div class="jumbotron" style="opacity:0.9">
-
             <script language="JavaScript">
 
                     var User = "current_user";
@@ -27,9 +25,16 @@
             </script> 
 
 
+<div id="sexyphoto" style="background: url(static/img/SF.jpg) no-repeat center ; margin-top:13px; margin-bottom:13px;height:300px;">
+</div>
 
+      <div class="jumbotron">
+        <div class="container">
+
+         
             <h2 id="hello"></h2>
-            <script>  document.getElementById("hello").innerHTML = "Select your flights to " + YouWrote1;  </script>
+            <script>  document.getElementById("hello").innerHTML = "Select your flights to " + YouWrote1;  
+            </script>
 
 
                           <div class="main">
@@ -73,8 +78,10 @@
                   for (i = 0; i < airports.length; i++) {
                     if (airports[i].city == YouWrote1) {var city1 = airports[i].abbv}
                   }
+                  document.getElementById("sexyphoto").style.background = "url(static/img/"+city1+".jpg) no-repeat center";
+                  //document.getElementById("sexyphoto").innerHTML = "url(static/img/"+city1+".jpg) no-repeat center";
 
-
+                  console.log("url(static/img/"+city1+".jpg) no-repeat center")
                   function myFunction(a) {
                       document.getElementById("fill-me2").innerHTML = "(" +city +" to "+ city1+ ")     "  + input[a];
                       close_accordion_section();
@@ -226,7 +233,10 @@
           </script>  
 
 
+        </div>
       </div>
+
+
 
 
 {% endblock %}

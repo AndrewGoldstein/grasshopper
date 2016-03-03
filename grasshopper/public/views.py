@@ -33,7 +33,7 @@ def home():
             return redirect(url_for('user.jumbo'))
         else:
             flash_errors(form)
-    return render_template('public/home.html', form=form)
+    return render_template('users/testing2.html', form=form)
 
 
 @blueprint.route('/logout/')

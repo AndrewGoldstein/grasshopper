@@ -19,12 +19,18 @@ def load_user(user_id):
 @blueprint.route('/')
 def jumbo():
     """Flight start page."""
-    return render_template('users/jumbotron.html')
+    return render_template('users/testingjumbotron.html')
 
 @blueprint.route('/members')
 def members():
     """members page."""
     return render_template('users/members.html')
+
+@blueprint.route('/testing')
+def tst():
+    """members page."""
+    return render_template('users/testing2.html')
+
 
 @blueprint.route('/flights')
 def flights():

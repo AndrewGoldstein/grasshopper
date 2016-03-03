@@ -94,6 +94,7 @@
                     if (origin != airports[i].city) {valid_airports.push(airports[i])}
                 };
                 populate_dropdown(valid_airports,div);
+          
                                     
       }
 

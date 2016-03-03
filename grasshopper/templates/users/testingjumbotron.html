@@ -1,0 +1,126 @@
+
+{% extends "layout.html" %}
+{% block content %}
+    <div class="jumbotron" style="background: url(static/img/runway3.jpg) no-repeat center; height:500px; margin-bottom:0px; padding-bottom:0px;">
+      <div class="container" align="left" >
+        <br><br><br><br><br><br><br>
+        <h1 style="color: #fff; font-size: 48px;  font-family: 'Shift'; font-weight: bold;">
+        What are you doing this weekend?</h1>
+        <p style=  "font-size: 20px;
+  color: #fff;">Spontaneity has reached new heights</p>
+        <a href="#">Fly Tomorrow</a>
+      </div>
+    </div>
+    
+    <!--<div class="neighborhood-guides">
+         <div class="container">
+            <h2>Neighborhood Guides</h2>
+            <p>Not sure where to stay? We've created neighborhood guides for cities all around the world.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                      <img src="http://goo.gl/0sX3jq" >
+                    </div>
+                    <div class="thumbnail">
+                      <img src="http://goo.gl/an2HXY" >
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                      <img src="http://goo.gl/Av1pac" >
+                    </div>
+                    <div class="thumbnail">
+                      <img src="http://goo.gl/vw43v1" >
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                      <img src="http://goo.gl/0Kd7UO" >
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>-->
+    <div class="learn-more">
+
+    <div class="container" >
+
+                          <div class="main">
+                            <div class="accordion">
+
+                              <div class="accordion-section">
+                                <center><a id="origin" class="accordion-section-title" href="#accordion-4">Select your Home City</a></center>
+                                <div id="accordion-4" class="accordion-section-content" >
+                                  <center> 
+                                    <select id="item1" onChange='passCookie("origin", this.value); reloaddiv("item2"); deleteCookie("output"," "); deleteCookie("input"," "); '>
+                                    <!--automatically open destination href upon departure close -->
+                                      <option value="select">Timbuktu</option>
+                                    </select>
+                                  </center>
+                                  <script> populate_dropdown(airports, 'item1');  </script> 
+                                </div><!--end .accordion-section-content-->
+                              </div><!--end .accordion-section-->
+                              
+                              <!--<p line-height= ".3em" style="background-color:transparent;"> </p>-->
+
+                              <div class="accordion-section">
+                                <center><a id="destination" class="accordion-section-title" href="#accordion-5">Select your Destination</a></center>
+                                <div id="accordion-5" class="accordion-section-content">
+                                  <center>
+                                    <select id="item2" onChange='passCookie("destination", this.value); deleteCookie("output"," "); deleteCookie("input"," ");'>
+                                      <option value="select">Select Destination</option>
+                                    </select>
+                                  </center>
+                                </div><!--end .accordion-section-content-->
+                              </div><!--end .accordion-section-->
+                            
+                            </div><!--end .accordion-->
+                          </div>
+
+                          <br>
+                          
+                          <center><a class="btn btn-lg btn-primary" href="{{ url_for('user.flights') }}" role="button">Let's Jet!</a><center>
+      </div>
+      </div>
+
+    <div class="learn-more">
+    <div class="containera" style="margin-left:10%; margin-right:10%;">
+    <div class="row">
+       <div class="col-md-4">
+                  <h3>Non-Stop Flights Only</h3>
+                  <p>The Weekend Flyer doesn't have time for layovers and missed connections. Wheels up, Wheels down.</p>
+
+
+                  <h3>First Come, First Serve</h3>
+                  <p>There's a limited set of tickets available for any given flight. The boarding door may close at any time.</p>
+                  
+              </div>
+
+              <div class="col-md-4">
+                  <h3>(Long) Weekend Travel Only</h3>
+
+                  <p>The Weekend Flyer currently doesn't offer last minute weekday travel bookings, we're just giving the common man a shot at weekend greatness.</p>
+
+                  <h3>Low Fare Guarantee</h3>
+                  <p>You won't find a lower roundtrip fare to your destination. Promise.</p>
+
+              </div>
+              <div class="col-md-4">
+
+                                <h3>Roundtrip Fares</h3>
+                  <p>It's good to go and it's good to come back. Our fares include both legs of your journey.</p>
+
+
+                  <h3>Different Destinations Every Weekend</h3>
+                  <p>We'll surprise you every week: just because you see a destination available this week doesn't mean it'll be available next weekend </p>
+
+              </div>
+    </div>
+  </div>
+<div>
+  
+</div>
+</div>
+
+
+{% endblock %}

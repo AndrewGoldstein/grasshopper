@@ -10,9 +10,6 @@
     <meta name="author" content="">
 
     <title>Weekend Flyer</title>
-    <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
-    <link rel="stylesheet" href="static/css/the_css.css">
 
     <!--<link rel="stylesheet" href="{{ url_for('static', filename='libs/bootstrap/css/bootstrap.min.css') }}">-->
     {% assets "css_all" %}
@@ -20,6 +17,7 @@
     {% endassets %}
 
     {% block css %}{% endblock %}
+
     <!-- Bootstrap core CSS -->
     <!--<link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
     <!-- Custom styles for this template -->
@@ -58,27 +56,44 @@
   </head>
 
 
-    
+  <!--<body style="background:lightblue;">-->
+  <body >
+    <div style="background: url(static/img/runway3b.jpg) no-repeat center top; position:relative; max-height:10%; padding:0;
+      margin:0;">
 
-     
-  <body style="margin-top:0px; margin-left:0px; margin-right:0px; padding-top:0px; ">
-    <div class="nav">
-      <div class="containera" style="margin-left:10%; margin-right:10%;">
-        <ul class="pull-left">
-          <li><a href="#">Weekend Flyer</a></li>
-        </ul>
-        <ul class="pull-right">
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="{{ url_for('public.register') }}">Log In</a></li>
-        </ul>
+
+    <div class="container" style="position:relative;">
+
+
+
+
+
+      <div class="header clearfix" style="align:center;" >
+        <nav>
+        
+          {% if current_user and current_user.is_authenticated %}
+          <ul class="nav nav-pills pull-right">
+              <a href="{{ url_for('user.settings') }}">
+                <button type="button" class="btn btn-primary btn-xlg">
+                  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                </button>
+              </a>
+          </ul>
+          {% else %}
+          <ul class="nav nav-pills pull-right">
+          </ul>
+          {% endif %}
+
+        </nav>
+        {% if current_user and current_user.is_authenticated %}
+        <h3 class="text-muted"><a style="color:black;" href="{{ url_for('user.jumbo') }}">Weekend Flyer</a></h3>
+        {% else %}
+        <h3 class="text-muted"><a style="color:black;" href="{{ url_for('public.home') }}">Weekend Flyer</a></h3>
+        <!--text-decoration: none"-->
+        {% endif %}
       </div>
-    </div>
 
-
-
-
-
-        {% with messages = get_flashed_messages(with_categories=true) %}
+      {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
       <div class="row">
         <div class="col-md-12">
@@ -93,14 +108,11 @@
           {% endif %}
       {% endwith %}
 
-
-
       {% block content %}{% endblock %}
+   
 
 
-
-
-      <footer class="footer" style="background: url(static/img/runway3c.jpg) no-repeat center; height:80px;">
+      <footer class="footer">
         <small>
 
           <ul class="company">
@@ -108,14 +120,16 @@
           </ul>
 
           <ul class="footer-nav">
-            <li><a href="#">About    </a></li>
+            <li><a href="{{ url_for('public.about') }}">About    </a></li>
             <li><a href="mailto:flyer.weekend@gmail.com">Contact</a></li>
-            <li><a href="#">Sign Out</a></li>    
+            <li><a class="fa fa-sign-out" href="{{ url_for('public.logout') }}">Sign Out</a></li>    
           </ul>
         </small>
       </footer>
 
+    </div> <!-- /container -->
 
+    </div>
     <!-- JavaScript at the bottom for fast page loading -->
     {% assets "js_all" %}
     <script type="text/javascript" src="{{ ASSET_URL }}"></script>

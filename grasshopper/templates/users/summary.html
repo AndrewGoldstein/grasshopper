@@ -2,7 +2,9 @@
 {% extends "layout.html" %}
 {% block content %}
  
-      <div class="jumbotron" style="opacity:0.92;">
+<div class="jumbotron" style="margin-left:10%; margin-right:10%;">
+<div class="container" >
+
 <h3>Please confirm that the information below is correct:</h3>
 
                 <div class='card-wrapper'></div>
@@ -72,7 +74,7 @@
    
    <tbody>
       <tr>
-         <td>Credit Card Information<a href="http://localhost:5000/users/settings#creditcard">  (edit)</a></td>
+         <td>Credit Card Information<a style="font-size:small" href="http://localhost:5000/users/settings#creditcard">  (edit)</a></td>
          <td>Number: {{ current_user.card_number }}</td>
       </tr>
       
@@ -85,7 +87,7 @@
          <td>CVC Code: {{ current_user.cvc }}</td>
       </tr>      
       <tr>
-         <td>Credit Card Address<a href="http://localhost:5000/users/settings#address">  (edit)</a></td>
+         <td>Credit Card Address<a style="font-size:small" href="http://localhost:5000/users/settings#address">  (edit)</a></td>
          <td>{{ current_user.full_name}}</td>
       </tr>
 
@@ -107,12 +109,12 @@
       </tr>      
 
       <tr>
-         <td>Date of Birth<a href="http://localhost:5000/users/settings#dob">  (edit)</a></td>
+         <td>Date of Birth<a style="font-size:small" href="http://localhost:5000/users/settings#dob">  (edit)</a></td>
          <td>{{ current_user.date_of_birth }}</td>
       </tr>
 
       <tr>
-         <td>Phone Number<a href="http://localhost:5000/users/settings#phone">  (edit)</a></td>
+         <td>Phone Number<a style="font-size:small" href="http://localhost:5000/users/settings#phone">  (edit)</a></td>
          <td>{{ current_user.phone }} </td>
       </tr>
    </tbody>
@@ -141,7 +143,7 @@
          <td id="result0"></td>
       </tr>
       <tr>
-         <td><a href='http://localhost:5000/users/flights#accordion-6'>(Change)</a></td>
+         <td><a style="font-size:small" href='http://localhost:5000/users/flights#accordion-6'>(Change)</a></td>
          <td id="result1"></td>
       </tr>
       <tr>
@@ -158,7 +160,7 @@
          <td id="result5"></td>
       </tr>
       <tr>
-         <td><a href='http://localhost:5000/users/flights#accordion-7'>(Change)</a></td>
+         <td><a style="font-size:small" href='http://localhost:5000/users/flights#accordion-7'>(Change)</a></td>
          <td id="result6"></td>
       </tr>
       <tr>
@@ -180,8 +182,8 @@ document.getElementById("result5").innerHTML = "Departing " + YouWrote1;
           document.getElementById("result2").innerHTML = f0; 
                            document.getElementById("result3").innerHTML = f1; </script>
 
-
-      </div>
+</div>
+</div>
 
 
 <br>

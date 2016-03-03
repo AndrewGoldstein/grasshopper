@@ -74,7 +74,7 @@
    
    <tbody>
       <tr>
-         <td>Credit Card Information<a style="font-size:small" href="http://localhost:5000/users/settings#creditcard">  (edit)</a></td>
+         <td>Credit Card Information<a style="font-size:small" href="{{ url_for('user.settings') }}">  (edit)</a></td>
          <td>Number: {{ current_user.card_number }}</td>
       </tr>
       
@@ -87,7 +87,7 @@
          <td>CVC Code: {{ current_user.cvc }}</td>
       </tr>      
       <tr>
-         <td>Credit Card Address<a style="font-size:small" href="http://localhost:5000/users/settings#address">  (edit)</a></td>
+         <td>Credit Card Address<a style="font-size:small" href="{{ url_for('user.settings') }}">  (edit)</a></td>
          <td>{{ current_user.full_name}}</td>
       </tr>
 
@@ -109,7 +109,7 @@
       </tr>      
 
       <tr>
-         <td>Date of Birth<a style="font-size:small" href="http://localhost:5000/users/settings#dob">  (edit)</a></td>
+         <td>Date of Birth<a style="font-size:small" href="{{ url_for('user.settings') }}">  (edit)</a></td>
          <td>{{ current_user.date_of_birth }}</td>
       </tr>
 
@@ -143,7 +143,7 @@
          <td id="result0"></td>
       </tr>
       <tr>
-         <td><a style="font-size:small" href='http://localhost:5000/users/flights#accordion-6'>(Change)</a></td>
+         <td><a style="font-size:small" href='http://weekendflyer.herokuapp.com/users/flights#accordion-6'>(Change)</a></td>
          <td id="result1"></td>
       </tr>
       <tr>
@@ -160,7 +160,7 @@
          <td id="result5"></td>
       </tr>
       <tr>
-         <td><a style="font-size:small" href='http://localhost:5000/users/flights#accordion-7'>(Change)</a></td>
+         <td><a style="font-size:small" href='http://weekendflyer.herokuapp.com/users/flights#accordion-7'>(Change)</a></td>
          <td id="result6"></td>
       </tr>
       <tr>
